@@ -22,6 +22,7 @@ namespace SISSiniflar
         }
     }
 
+
     public enum CalisanTipleri
     {
         SistemYoneticisi,
