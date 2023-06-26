@@ -12,10 +12,30 @@ namespace SISSiniflar
         private string cinsiyet = String.Empty;
         private string adres = String.Empty;
 
-        public DateTime DogumTarihi { get => dogumTarihi; set => dogumTarihi = value; }
-        public string Cinsiyet { get => cinsiyet; set => cinsiyet = value; }
-        public string Adres { get => adres; set => adres = value; }
+        public DateTime DogumTarihi
+        {
+            get { return dogumTarihi; }
+            set { dogumTarihi = value; }
+        }
 
-        public string GoruntuMetni { get => string.Format("{0} {1}", base.adSoyad, base.telefonNo); }
+        public string Cinsiyet
+        {
+            get { return cinsiyet; }
+            set { cinsiyet = value; }
+        }
+
+        public string Adres
+        {
+            get { return adres; }
+            set { adres = value; }
+        }
+
+        public string GoruntuMetni
+        {
+            get
+            {
+                return string.Format("{0}, {1}", adSoyad, telefonNo);
+            }
+        }
     }
 }
