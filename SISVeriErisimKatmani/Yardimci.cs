@@ -9,10 +9,10 @@ namespace SISVeriErisimKatmani
 {
     internal class Yardimci
     {
-        public static void HataKaydet(Exception exception)
+        public static void HataKaydet(Exception hata)
         {
             string dosyaAdi = Environment.CurrentDirectory + "\\SISVeriErisimKatmani_Hata_"+ Guid.NewGuid() + ".txt";
-            File.WriteAllText(dosyaAdi, exception.ToString());
+            File.WriteAllText(dosyaAdi, hata.ToString());
         }
     }
 }
