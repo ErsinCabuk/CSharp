@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SISSiniflar\SISSiniflar.csproj" />
+    <ProjectReference Include="..\SISVeriErisimKatmani\SISVeriErisimKatmani.csproj" />
+  </ItemGroup>
+
 </Project>
