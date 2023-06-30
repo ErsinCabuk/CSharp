@@ -53,6 +53,7 @@
             comboBoxUzman.Name = "comboBoxUzman";
             comboBoxUzman.Size = new Size(332, 29);
             comboBoxUzman.TabIndex = 1;
+            comboBoxUzman.SelectedIndexChanged += comboBoxUzman_SelectedIndexChanged;
             // 
             // labelAyrac
             // 
@@ -88,6 +89,7 @@
             buttonYeniSeansEkle.TabIndex = 5;
             buttonYeniSeansEkle.Text = "Yeni Seans Ekle";
             buttonYeniSeansEkle.UseVisualStyleBackColor = true;
+            buttonYeniSeansEkle.Click += buttonYeniSeansEkle_Click;
             // 
             // buttonSeansIptal
             // 
@@ -97,6 +99,7 @@
             buttonSeansIptal.TabIndex = 6;
             buttonSeansIptal.Text = "Seçili Seansı İptal Et";
             buttonSeansIptal.UseVisualStyleBackColor = true;
+            buttonSeansIptal.Click += buttonSeansIptal_Click;
             // 
             // FormSeansYonetimi
             // 
@@ -117,6 +120,7 @@
             Name = "FormSeansYonetimi";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormSeansYonetimi";
+            Load += FormSeansYonetimi_Load;
             ResumeLayout(false);
             PerformLayout();
         }

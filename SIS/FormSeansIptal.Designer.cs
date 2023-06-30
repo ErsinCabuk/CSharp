@@ -96,6 +96,7 @@
             buttonIptalEt.TabIndex = 11;
             buttonIptalEt.Text = "İptal Et";
             buttonIptalEt.UseVisualStyleBackColor = true;
+            buttonIptalEt.Click += buttonIptalEt_Click;
             // 
             // FormSeansIptal
             // 
@@ -116,6 +117,7 @@
             Name = "FormSeansIptal";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormSeansIptal";
+            Load += FormSeansIptal_Load;
             ResumeLayout(false);
             PerformLayout();
         }

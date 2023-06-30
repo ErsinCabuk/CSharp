@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             labelUzmanBaslik = new Label();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
+            labelTarih = new Label();
+            labelBaslangicSaati = new Label();
+            labelBitisSaati = new Label();
             labelUzman = new Label();
             dateTimePickerTarih = new DateTimePicker();
             dateTimePickerBaslangicSaati = new DateTimePicker();
@@ -48,32 +48,32 @@
             labelUzmanBaslik.TabIndex = 0;
             labelUzmanBaslik.Text = "Uzman:";
             // 
-            // label1
+            // labelTarih
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 47);
-            label1.Name = "label1";
-            label1.Size = new Size(46, 21);
-            label1.TabIndex = 1;
-            label1.Text = "Tarih:";
+            labelTarih.AutoSize = true;
+            labelTarih.Location = new Point(12, 47);
+            labelTarih.Name = "labelTarih";
+            labelTarih.Size = new Size(46, 21);
+            labelTarih.TabIndex = 1;
+            labelTarih.Text = "Tarih:";
             // 
-            // label2
+            // labelBaslangicSaati
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(12, 82);
-            label2.Name = "label2";
-            label2.Size = new Size(116, 21);
-            label2.TabIndex = 2;
-            label2.Text = "Başlangıç Saati:";
+            labelBaslangicSaati.AutoSize = true;
+            labelBaslangicSaati.Location = new Point(12, 82);
+            labelBaslangicSaati.Name = "labelBaslangicSaati";
+            labelBaslangicSaati.Size = new Size(116, 21);
+            labelBaslangicSaati.TabIndex = 2;
+            labelBaslangicSaati.Text = "Başlangıç Saati:";
             // 
-            // label3
+            // labelBitisSaati
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(12, 116);
-            label3.Name = "label3";
-            label3.Size = new Size(80, 21);
-            label3.TabIndex = 3;
-            label3.Text = "Bitiş Saati:";
+            labelBitisSaati.AutoSize = true;
+            labelBitisSaati.Location = new Point(12, 116);
+            labelBitisSaati.Name = "labelBitisSaati";
+            labelBitisSaati.Size = new Size(80, 21);
+            labelBitisSaati.TabIndex = 3;
+            labelBitisSaati.Text = "Bitiş Saati:";
             // 
             // labelUzman
             // 
@@ -117,6 +117,7 @@
             buttonKaydet.TabIndex = 8;
             buttonKaydet.Text = "Kaydet";
             buttonKaydet.UseVisualStyleBackColor = true;
+            buttonKaydet.Click += buttonKaydet_Click;
             // 
             // FormYeniSeans
             // 
@@ -128,9 +129,9 @@
             Controls.Add(dateTimePickerBaslangicSaati);
             Controls.Add(dateTimePickerTarih);
             Controls.Add(labelUzman);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(labelBitisSaati);
+            Controls.Add(labelBaslangicSaati);
+            Controls.Add(labelTarih);
             Controls.Add(labelUzmanBaslik);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -139,6 +140,7 @@
             Name = "FormYeniSeans";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Yeni Seans";
+            Load += FormYeniSeans_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -146,9 +148,9 @@
         #endregion
 
         private Label labelUzmanBaslik;
-        private Label label1;
-        private Label label2;
-        private Label label3;
+        private Label labelTarih;
+        private Label labelBaslangicSaati;
+        private Label labelBitisSaati;
         private Label labelUzman;
         private DateTimePicker dateTimePickerTarih;
         private DateTimePicker dateTimePickerBaslangicSaati;

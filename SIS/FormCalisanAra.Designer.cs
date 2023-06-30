@@ -57,7 +57,7 @@
             // 
             // buttonAra
             // 
-            buttonAra.Location = new Point(13, 92);
+            buttonAra.Location = new Point(13, 82);
             buttonAra.Name = "buttonAra";
             buttonAra.Size = new Size(235, 29);
             buttonAra.TabIndex = 7;

@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             labelSeanslar = new Label();
-            comboBox1 = new ComboBox();
+            comboBoxSeanslar = new ComboBox();
             groupBoxHastaBilgileri = new GroupBox();
+            labelSoyad = new Label();
+            labelSoyadBaslik = new Label();
             labelAdres = new Label();
             labelAdresBaslik = new Label();
             labelDogumTarihi = new Label();
             labelDogumTarihiBaslik = new Label();
-            labelGSMNo = new Label();
-            labelGSMNoBaslik = new Label();
             labelTelefonNo = new Label();
             labelTelefonNoBaslik = new Label();
             labelEPosta = new Label();
             labelEPostaBaslik = new Label();
             labelCinsiyet = new Label();
             labelCinsiyetBaslik = new Label();
-            labelAdSoyad = new Label();
-            labelHastaBilgileriAdSoyadBaslik = new Label();
+            labelAd = new Label();
+            labelAdBaslik = new Label();
             labelTCKimlikNo = new Label();
             labelTCKimlikNoBaslik = new Label();
             groupBoxHastaGecmisi = new GroupBox();
@@ -69,44 +69,62 @@
             labelSeanslar.TabIndex = 0;
             labelSeanslar.Text = "Seanslar:";
             // 
-            // comboBox1
+            // comboBoxSeanslar
             // 
-            comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(90, 12);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(249, 29);
-            comboBox1.TabIndex = 1;
+            comboBoxSeanslar.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxSeanslar.FormattingEnabled = true;
+            comboBoxSeanslar.Location = new Point(90, 12);
+            comboBoxSeanslar.Name = "comboBoxSeanslar";
+            comboBoxSeanslar.Size = new Size(249, 29);
+            comboBoxSeanslar.TabIndex = 1;
+            comboBoxSeanslar.SelectedIndexChanged += comboBoxSeanslar_SelectedIndexChanged;
             // 
             // groupBoxHastaBilgileri
             // 
+            groupBoxHastaBilgileri.Controls.Add(labelSoyad);
+            groupBoxHastaBilgileri.Controls.Add(labelSoyadBaslik);
             groupBoxHastaBilgileri.Controls.Add(labelAdres);
             groupBoxHastaBilgileri.Controls.Add(labelAdresBaslik);
             groupBoxHastaBilgileri.Controls.Add(labelDogumTarihi);
             groupBoxHastaBilgileri.Controls.Add(labelDogumTarihiBaslik);
-            groupBoxHastaBilgileri.Controls.Add(labelGSMNo);
-            groupBoxHastaBilgileri.Controls.Add(labelGSMNoBaslik);
             groupBoxHastaBilgileri.Controls.Add(labelTelefonNo);
             groupBoxHastaBilgileri.Controls.Add(labelTelefonNoBaslik);
             groupBoxHastaBilgileri.Controls.Add(labelEPosta);
             groupBoxHastaBilgileri.Controls.Add(labelEPostaBaslik);
             groupBoxHastaBilgileri.Controls.Add(labelCinsiyet);
             groupBoxHastaBilgileri.Controls.Add(labelCinsiyetBaslik);
-            groupBoxHastaBilgileri.Controls.Add(labelAdSoyad);
-            groupBoxHastaBilgileri.Controls.Add(labelHastaBilgileriAdSoyadBaslik);
+            groupBoxHastaBilgileri.Controls.Add(labelAd);
+            groupBoxHastaBilgileri.Controls.Add(labelAdBaslik);
             groupBoxHastaBilgileri.Controls.Add(labelTCKimlikNo);
             groupBoxHastaBilgileri.Controls.Add(labelTCKimlikNoBaslik);
             groupBoxHastaBilgileri.Location = new Point(12, 47);
             groupBoxHastaBilgileri.Name = "groupBoxHastaBilgileri";
-            groupBoxHastaBilgileri.Size = new Size(327, 281);
+            groupBoxHastaBilgileri.Size = new Size(327, 283);
             groupBoxHastaBilgileri.TabIndex = 2;
             groupBoxHastaBilgileri.TabStop = false;
             groupBoxHastaBilgileri.Text = "Hasta Bilgileri";
             // 
+            // labelSoyad
+            // 
+            labelSoyad.BorderStyle = BorderStyle.Fixed3D;
+            labelSoyad.Location = new Point(118, 76);
+            labelSoyad.Name = "labelSoyad";
+            labelSoyad.Size = new Size(150, 21);
+            labelSoyad.TabIndex = 33;
+            // 
+            // labelSoyadBaslik
+            // 
+            labelSoyadBaslik.AutoSize = true;
+            labelSoyadBaslik.Location = new Point(6, 76);
+            labelSoyadBaslik.Name = "labelSoyadBaslik";
+            labelSoyadBaslik.Size = new Size(56, 21);
+            labelSoyadBaslik.TabIndex = 32;
+            labelSoyadBaslik.Text = "Soyad:";
+            // 
             // labelAdres
             // 
             labelAdres.BorderStyle = BorderStyle.Fixed3D;
-            labelAdres.Location = new Point(118, 209);
+            labelAdres.Location = new Point(118, 208);
             labelAdres.Name = "labelAdres";
             labelAdres.Size = new Size(200, 63);
             labelAdres.TabIndex = 31;
@@ -114,7 +132,7 @@
             // labelAdresBaslik
             // 
             labelAdresBaslik.AutoSize = true;
-            labelAdresBaslik.Location = new Point(6, 209);
+            labelAdresBaslik.Location = new Point(6, 208);
             labelAdresBaslik.Name = "labelAdresBaslik";
             labelAdresBaslik.Size = new Size(53, 21);
             labelAdresBaslik.TabIndex = 30;
@@ -123,7 +141,7 @@
             // labelDogumTarihi
             // 
             labelDogumTarihi.BorderStyle = BorderStyle.Fixed3D;
-            labelDogumTarihi.Location = new Point(118, 182);
+            labelDogumTarihi.Location = new Point(118, 181);
             labelDogumTarihi.Name = "labelDogumTarihi";
             labelDogumTarihi.Size = new Size(150, 21);
             labelDogumTarihi.TabIndex = 29;
@@ -131,33 +149,16 @@
             // labelDogumTarihiBaslik
             // 
             labelDogumTarihiBaslik.AutoSize = true;
-            labelDogumTarihiBaslik.Location = new Point(6, 182);
+            labelDogumTarihiBaslik.Location = new Point(6, 181);
             labelDogumTarihiBaslik.Name = "labelDogumTarihiBaslik";
             labelDogumTarihiBaslik.Size = new Size(106, 21);
             labelDogumTarihiBaslik.TabIndex = 28;
             labelDogumTarihiBaslik.Text = "Doğum Tarihi:";
             // 
-            // labelGSMNo
-            // 
-            labelGSMNo.BorderStyle = BorderStyle.Fixed3D;
-            labelGSMNo.Location = new Point(118, 156);
-            labelGSMNo.Name = "labelGSMNo";
-            labelGSMNo.Size = new Size(150, 21);
-            labelGSMNo.TabIndex = 27;
-            // 
-            // labelGSMNoBaslik
-            // 
-            labelGSMNoBaslik.AutoSize = true;
-            labelGSMNoBaslik.Location = new Point(6, 156);
-            labelGSMNoBaslik.Name = "labelGSMNoBaslik";
-            labelGSMNoBaslik.Size = new Size(72, 21);
-            labelGSMNoBaslik.TabIndex = 26;
-            labelGSMNoBaslik.Text = "GSM No:";
-            // 
             // labelTelefonNo
             // 
             labelTelefonNo.BorderStyle = BorderStyle.Fixed3D;
-            labelTelefonNo.Location = new Point(118, 130);
+            labelTelefonNo.Location = new Point(118, 155);
             labelTelefonNo.Name = "labelTelefonNo";
             labelTelefonNo.Size = new Size(150, 21);
             labelTelefonNo.TabIndex = 25;
@@ -165,7 +166,7 @@
             // labelTelefonNoBaslik
             // 
             labelTelefonNoBaslik.AutoSize = true;
-            labelTelefonNoBaslik.Location = new Point(6, 130);
+            labelTelefonNoBaslik.Location = new Point(6, 155);
             labelTelefonNoBaslik.Name = "labelTelefonNoBaslik";
             labelTelefonNoBaslik.Size = new Size(87, 21);
             labelTelefonNoBaslik.TabIndex = 24;
@@ -174,7 +175,7 @@
             // labelEPosta
             // 
             labelEPosta.BorderStyle = BorderStyle.Fixed3D;
-            labelEPosta.Location = new Point(118, 104);
+            labelEPosta.Location = new Point(118, 129);
             labelEPosta.Name = "labelEPosta";
             labelEPosta.Size = new Size(150, 21);
             labelEPosta.TabIndex = 23;
@@ -182,7 +183,7 @@
             // labelEPostaBaslik
             // 
             labelEPostaBaslik.AutoSize = true;
-            labelEPostaBaslik.Location = new Point(6, 104);
+            labelEPostaBaslik.Location = new Point(6, 129);
             labelEPostaBaslik.Name = "labelEPostaBaslik";
             labelEPostaBaslik.Size = new Size(64, 21);
             labelEPostaBaslik.TabIndex = 22;
@@ -191,7 +192,7 @@
             // labelCinsiyet
             // 
             labelCinsiyet.BorderStyle = BorderStyle.Fixed3D;
-            labelCinsiyet.Location = new Point(118, 77);
+            labelCinsiyet.Location = new Point(118, 102);
             labelCinsiyet.Name = "labelCinsiyet";
             labelCinsiyet.Size = new Size(150, 21);
             labelCinsiyet.TabIndex = 21;
@@ -199,28 +200,28 @@
             // labelCinsiyetBaslik
             // 
             labelCinsiyetBaslik.AutoSize = true;
-            labelCinsiyetBaslik.Location = new Point(6, 77);
+            labelCinsiyetBaslik.Location = new Point(6, 102);
             labelCinsiyetBaslik.Name = "labelCinsiyetBaslik";
             labelCinsiyetBaslik.Size = new Size(68, 21);
             labelCinsiyetBaslik.TabIndex = 20;
             labelCinsiyetBaslik.Text = "Cinsiyet:";
             // 
-            // labelAdSoyad
+            // labelAd
             // 
-            labelAdSoyad.BorderStyle = BorderStyle.Fixed3D;
-            labelAdSoyad.Location = new Point(118, 51);
-            labelAdSoyad.Name = "labelAdSoyad";
-            labelAdSoyad.Size = new Size(150, 21);
-            labelAdSoyad.TabIndex = 19;
+            labelAd.BorderStyle = BorderStyle.Fixed3D;
+            labelAd.Location = new Point(118, 51);
+            labelAd.Name = "labelAd";
+            labelAd.Size = new Size(150, 21);
+            labelAd.TabIndex = 19;
             // 
-            // labelHastaBilgileriAdSoyadBaslik
+            // labelAdBaslik
             // 
-            labelHastaBilgileriAdSoyadBaslik.AutoSize = true;
-            labelHastaBilgileriAdSoyadBaslik.Location = new Point(6, 51);
-            labelHastaBilgileriAdSoyadBaslik.Name = "labelHastaBilgileriAdSoyadBaslik";
-            labelHastaBilgileriAdSoyadBaslik.Size = new Size(79, 21);
-            labelHastaBilgileriAdSoyadBaslik.TabIndex = 18;
-            labelHastaBilgileriAdSoyadBaslik.Text = "Ad Soyad:";
+            labelAdBaslik.AutoSize = true;
+            labelAdBaslik.Location = new Point(6, 51);
+            labelAdBaslik.Name = "labelAdBaslik";
+            labelAdBaslik.Size = new Size(32, 21);
+            labelAdBaslik.TabIndex = 18;
+            labelAdBaslik.Text = "Ad:";
             // 
             // labelTCKimlikNo
             // 
@@ -247,23 +248,24 @@
             groupBoxHastaGecmisi.Controls.Add(labelSeanslar2);
             groupBoxHastaGecmisi.Location = new Point(345, 12);
             groupBoxHastaGecmisi.Name = "groupBoxHastaGecmisi";
-            groupBoxHastaGecmisi.Size = new Size(355, 316);
+            groupBoxHastaGecmisi.Size = new Size(355, 318);
             groupBoxHastaGecmisi.TabIndex = 3;
             groupBoxHastaGecmisi.TabStop = false;
             groupBoxHastaGecmisi.Text = "Hasta Geçmişi";
             // 
             // buttonGecmisSeansNotuDuzenle
             // 
-            buttonGecmisSeansNotuDuzenle.Location = new Point(6, 282);
+            buttonGecmisSeansNotuDuzenle.Location = new Point(6, 281);
             buttonGecmisSeansNotuDuzenle.Name = "buttonGecmisSeansNotuDuzenle";
             buttonGecmisSeansNotuDuzenle.Size = new Size(343, 29);
             buttonGecmisSeansNotuDuzenle.TabIndex = 3;
             buttonGecmisSeansNotuDuzenle.Text = "Düzenle";
             buttonGecmisSeansNotuDuzenle.UseVisualStyleBackColor = true;
+            buttonGecmisSeansNotuDuzenle.Click += buttonGecmisSeansNotuDuzenle_Click;
             // 
             // textBoxGecmisSeansNotu
             // 
-            textBoxGecmisSeansNotu.Location = new Point(6, 165);
+            textBoxGecmisSeansNotu.Location = new Point(6, 164);
             textBoxGecmisSeansNotu.Multiline = true;
             textBoxGecmisSeansNotu.Name = "textBoxGecmisSeansNotu";
             textBoxGecmisSeansNotu.ScrollBars = ScrollBars.Vertical;
@@ -278,6 +280,7 @@
             listBoxSeanslar.Name = "listBoxSeanslar";
             listBoxSeanslar.Size = new Size(343, 109);
             listBoxSeanslar.TabIndex = 1;
+            listBoxSeanslar.SelectedIndexChanged += listBoxSeanslar_SelectedIndexChanged;
             // 
             // labelSeanslar2
             // 
@@ -294,19 +297,20 @@
             groupBoxSeansNotu.Controls.Add(textBoxSeansNotu);
             groupBoxSeansNotu.Location = new Point(706, 12);
             groupBoxSeansNotu.Name = "groupBoxSeansNotu";
-            groupBoxSeansNotu.Size = new Size(358, 316);
+            groupBoxSeansNotu.Size = new Size(358, 318);
             groupBoxSeansNotu.TabIndex = 4;
             groupBoxSeansNotu.TabStop = false;
             groupBoxSeansNotu.Text = "Seans Notu";
             // 
             // buttonSeansNotuKaydet
             // 
-            buttonSeansNotuKaydet.Location = new Point(6, 282);
+            buttonSeansNotuKaydet.Location = new Point(6, 281);
             buttonSeansNotuKaydet.Name = "buttonSeansNotuKaydet";
             buttonSeansNotuKaydet.Size = new Size(343, 29);
             buttonSeansNotuKaydet.TabIndex = 5;
             buttonSeansNotuKaydet.Text = "Kaydet";
             buttonSeansNotuKaydet.UseVisualStyleBackColor = true;
+            buttonSeansNotuKaydet.Click += buttonSeansNotuKaydet_Click;
             // 
             // textBoxSeansNotu
             // 
@@ -314,18 +318,18 @@
             textBoxSeansNotu.Multiline = true;
             textBoxSeansNotu.Name = "textBoxSeansNotu";
             textBoxSeansNotu.ScrollBars = ScrollBars.Vertical;
-            textBoxSeansNotu.Size = new Size(343, 248);
+            textBoxSeansNotu.Size = new Size(343, 247);
             textBoxSeansNotu.TabIndex = 4;
             // 
             // FormUzmanSeansYonetimi
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1065, 334);
+            ClientSize = new Size(1065, 343);
             Controls.Add(groupBoxSeansNotu);
             Controls.Add(groupBoxHastaGecmisi);
             Controls.Add(groupBoxHastaBilgileri);
-            Controls.Add(comboBox1);
+            Controls.Add(comboBoxSeanslar);
             Controls.Add(labelSeanslar);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -334,6 +338,7 @@
             Name = "FormUzmanSeansYonetimi";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormUzmanSeansYonetimi";
+            Load += FormUzmanSeansYonetimi_Load;
             groupBoxHastaBilgileri.ResumeLayout(false);
             groupBoxHastaBilgileri.PerformLayout();
             groupBoxHastaGecmisi.ResumeLayout(false);
@@ -347,22 +352,20 @@
         #endregion
 
         private Label labelSeanslar;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxSeanslar;
         private GroupBox groupBoxHastaBilgileri;
         private Label labelAdres;
         private Label labelAdresBaslik;
         private Label labelDogumTarihi;
         private Label labelDogumTarihiBaslik;
-        private Label labelGSMNo;
-        private Label labelGSMNoBaslik;
         private Label labelTelefonNo;
         private Label labelTelefonNoBaslik;
         private Label labelEPosta;
         private Label labelEPostaBaslik;
         private Label labelCinsiyet;
         private Label labelCinsiyetBaslik;
-        private Label labelAdSoyad;
-        private Label labelHastaBilgileriAdSoyadBaslik;
+        private Label labelAd;
+        private Label labelAdBaslik;
         private Label labelTCKimlikNo;
         private Label labelTCKimlikNoBaslik;
         private GroupBox groupBoxHastaGecmisi;
@@ -373,5 +376,7 @@
         private GroupBox groupBoxSeansNotu;
         private Button buttonSeansNotuKaydet;
         private TextBox textBoxSeansNotu;
+        private Label labelSoyad;
+        private Label labelSoyadBaslik;
     }
 }

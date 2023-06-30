@@ -47,6 +47,7 @@
             // textBoxEPosta
             // 
             textBoxEPosta.Location = new Point(96, 12);
+            textBoxEPosta.MaxLength = 50;
             textBoxEPosta.Name = "textBoxEPosta";
             textBoxEPosta.Size = new Size(150, 29);
             textBoxEPosta.TabIndex = 1;
@@ -54,6 +55,7 @@
             // textBoxYeniSifre
             // 
             textBoxYeniSifre.Location = new Point(96, 47);
+            textBoxYeniSifre.MaxLength = 10;
             textBoxYeniSifre.Name = "textBoxYeniSifre";
             textBoxYeniSifre.PasswordChar = '*';
             textBoxYeniSifre.Size = new Size(150, 29);
@@ -76,6 +78,7 @@
             buttonSifirla.TabIndex = 4;
             buttonSifirla.Text = "Sıfırla";
             buttonSifirla.UseVisualStyleBackColor = true;
+            buttonSifirla.Click += buttonSifirla_Click;
             // 
             // FormSifreSifirla
             // 
@@ -89,7 +92,7 @@
             Controls.Add(labelEPosta);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             Name = "FormSifreSifirla";
             StartPosition = FormStartPosition.CenterScreen;

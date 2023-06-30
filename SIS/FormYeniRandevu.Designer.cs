@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             labelHastaBaslik = new Label();
-            label1 = new Label();
+            labelHasta = new Label();
             labelUzman = new Label();
             comboBoxUzman = new ComboBox();
             comboBoxSeans = new ComboBox();
             labelSeans = new Label();
-            button1 = new Button();
+            buttonKaydet = new Button();
             SuspendLayout();
             // 
             // labelHastaBaslik
@@ -46,13 +46,13 @@
             labelHastaBaslik.TabIndex = 0;
             labelHastaBaslik.Text = "Hasta:";
             // 
-            // label1
+            // labelHasta
             // 
-            label1.BorderStyle = BorderStyle.Fixed3D;
-            label1.Location = new Point(80, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(150, 21);
-            label1.TabIndex = 1;
+            labelHasta.BorderStyle = BorderStyle.Fixed3D;
+            labelHasta.Location = new Point(80, 9);
+            labelHasta.Name = "labelHasta";
+            labelHasta.Size = new Size(150, 21);
+            labelHasta.TabIndex = 1;
             // 
             // labelUzman
             // 
@@ -71,6 +71,7 @@
             comboBoxUzman.Name = "comboBoxUzman";
             comboBoxUzman.Size = new Size(150, 29);
             comboBoxUzman.TabIndex = 3;
+            comboBoxUzman.SelectedIndexChanged += comboBoxUzman_SelectedIndexChanged;
             // 
             // comboBoxSeans
             // 
@@ -80,6 +81,7 @@
             comboBoxSeans.Name = "comboBoxSeans";
             comboBoxSeans.Size = new Size(150, 29);
             comboBoxSeans.TabIndex = 5;
+            comboBoxSeans.SelectedIndexChanged += comboBoxSeans_SelectedIndexChanged;
             // 
             // labelSeans
             // 
@@ -90,34 +92,36 @@
             labelSeans.TabIndex = 4;
             labelSeans.Text = "Seans:";
             // 
-            // button1
+            // buttonKaydet
             // 
-            button1.Location = new Point(12, 108);
-            button1.Name = "button1";
-            button1.Size = new Size(218, 29);
-            button1.TabIndex = 6;
-            button1.Text = "Kaydet";
-            button1.UseVisualStyleBackColor = true;
+            buttonKaydet.Location = new Point(12, 108);
+            buttonKaydet.Name = "buttonKaydet";
+            buttonKaydet.Size = new Size(218, 29);
+            buttonKaydet.TabIndex = 6;
+            buttonKaydet.Text = "Kaydet";
+            buttonKaydet.UseVisualStyleBackColor = true;
+            buttonKaydet.Click += buttonKaydet_Click;
             // 
             // FormYeniRandevu
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(240, 149);
-            Controls.Add(button1);
+            Controls.Add(buttonKaydet);
             Controls.Add(comboBoxSeans);
             Controls.Add(labelSeans);
             Controls.Add(comboBoxUzman);
             Controls.Add(labelUzman);
-            Controls.Add(label1);
+            Controls.Add(labelHasta);
             Controls.Add(labelHastaBaslik);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             Name = "FormYeniRandevu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FormYeniRandevu";
+            Load += FormYeniRandevu_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -125,11 +129,11 @@
         #endregion
 
         private Label labelHastaBaslik;
-        private Label label1;
+        private Label labelHasta;
         private Label labelUzman;
         private ComboBox comboBoxUzman;
         private ComboBox comboBoxSeans;
         private Label labelSeans;
-        private Button button1;
+        private Button buttonKaydet;
     }
 }

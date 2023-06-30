@@ -33,7 +33,7 @@
             labelTelefonNo = new Label();
             textBoxEPosta = new TextBox();
             labelEPosta = new Label();
-            textBoxAdSoyad = new TextBox();
+            textBoxAd = new TextBox();
             labelAd = new Label();
             textBoxTCKimlikNo = new TextBox();
             labelTCKimlikNo = new Label();
@@ -43,8 +43,8 @@
             labelDogumTarihi = new Label();
             comboBoxCinsiyet = new ComboBox();
             dateTimePickerDogumTarihi = new DateTimePicker();
-            textBox1 = new TextBox();
-            label1 = new Label();
+            textBoxSoyad = new TextBox();
+            labelSoyad = new Label();
             SuspendLayout();
             // 
             // buttonKaydet
@@ -55,6 +55,7 @@
             buttonKaydet.TabIndex = 37;
             buttonKaydet.Text = "Kaydet";
             buttonKaydet.UseVisualStyleBackColor = true;
+            buttonKaydet.Click += buttonKaydet_Click;
             // 
             // textBoxTelefonNo
             // 
@@ -90,13 +91,13 @@
             labelEPosta.TabIndex = 31;
             labelEPosta.Text = "E-Posta:";
             // 
-            // textBoxAdSoyad
+            // textBoxAd
             // 
-            textBoxAdSoyad.Location = new Point(124, 47);
-            textBoxAdSoyad.MaxLength = 50;
-            textBoxAdSoyad.Name = "textBoxAdSoyad";
-            textBoxAdSoyad.Size = new Size(150, 29);
-            textBoxAdSoyad.TabIndex = 30;
+            textBoxAd.Location = new Point(124, 47);
+            textBoxAd.MaxLength = 50;
+            textBoxAd.Name = "textBoxAd";
+            textBoxAd.Size = new Size(150, 29);
+            textBoxAd.TabIndex = 30;
             // 
             // labelAd
             // 
@@ -178,30 +179,30 @@
             dateTimePickerDogumTarihi.Size = new Size(150, 29);
             dateTimePickerDogumTarihi.TabIndex = 45;
             // 
-            // textBox1
+            // textBoxSoyad
             // 
-            textBox1.Location = new Point(124, 82);
-            textBox1.MaxLength = 50;
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 29);
-            textBox1.TabIndex = 47;
+            textBoxSoyad.Location = new Point(124, 82);
+            textBoxSoyad.MaxLength = 50;
+            textBoxSoyad.Name = "textBoxSoyad";
+            textBoxSoyad.Size = new Size(150, 29);
+            textBoxSoyad.TabIndex = 47;
             // 
-            // label1
+            // labelSoyad
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(12, 85);
-            label1.Name = "label1";
-            label1.Size = new Size(56, 21);
-            label1.TabIndex = 46;
-            label1.Text = "Soyad:";
+            labelSoyad.AutoSize = true;
+            labelSoyad.Location = new Point(12, 85);
+            labelSoyad.Name = "labelSoyad";
+            labelSoyad.Size = new Size(56, 21);
+            labelSoyad.TabIndex = 46;
+            labelSoyad.Text = "Soyad:";
             // 
             // FormHastaBilgisi
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(335, 366);
-            Controls.Add(textBox1);
-            Controls.Add(label1);
+            Controls.Add(textBoxSoyad);
+            Controls.Add(labelSoyad);
             Controls.Add(dateTimePickerDogumTarihi);
             Controls.Add(comboBoxCinsiyet);
             Controls.Add(labelCinsiyet);
@@ -213,7 +214,7 @@
             Controls.Add(labelTelefonNo);
             Controls.Add(textBoxEPosta);
             Controls.Add(labelEPosta);
-            Controls.Add(textBoxAdSoyad);
+            Controls.Add(textBoxAd);
             Controls.Add(labelAd);
             Controls.Add(textBoxTCKimlikNo);
             Controls.Add(labelTCKimlikNo);
@@ -224,6 +225,7 @@
             Name = "FormHastaBilgisi";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Hasta Bilgisi";
+            Load += FormHastaBilgisi_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -234,7 +236,7 @@
         private Label labelTelefonNo;
         private TextBox textBoxEPosta;
         private Label labelEPosta;
-        private TextBox textBoxAdSoyad;
+        private TextBox textBoxAd;
         private Label labelAd;
         private TextBox textBoxTCKimlikNo;
         private Label labelTCKimlikNo;
@@ -244,7 +246,7 @@
         private Label labelDogumTarihi;
         private ComboBox comboBoxCinsiyet;
         private DateTimePicker dateTimePickerDogumTarihi;
-        private TextBox textBox1;
-        private Label label1;
+        private TextBox textBoxSoyad;
+        private Label labelSoyad;
     }
 }

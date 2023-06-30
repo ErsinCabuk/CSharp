@@ -40,6 +40,7 @@
             // textBoxEskiSifre
             // 
             textBoxEskiSifre.Location = new Point(152, 12);
+            textBoxEskiSifre.MaxLength = 10;
             textBoxEskiSifre.Name = "textBoxEskiSifre";
             textBoxEskiSifre.PasswordChar = '*';
             textBoxEskiSifre.Size = new Size(150, 29);
@@ -57,6 +58,7 @@
             // textBoxYeniSifre
             // 
             textBoxYeniSifre.Location = new Point(152, 47);
+            textBoxYeniSifre.MaxLength = 10;
             textBoxYeniSifre.Name = "textBoxYeniSifre";
             textBoxYeniSifre.PasswordChar = '*';
             textBoxYeniSifre.Size = new Size(150, 29);
@@ -74,6 +76,7 @@
             // textBoxYeniSifreTekrar
             // 
             textBoxYeniSifreTekrar.Location = new Point(152, 82);
+            textBoxYeniSifreTekrar.MaxLength = 10;
             textBoxYeniSifreTekrar.Name = "textBoxYeniSifreTekrar";
             textBoxYeniSifreTekrar.PasswordChar = '*';
             textBoxYeniSifreTekrar.Size = new Size(150, 29);
@@ -96,6 +99,7 @@
             buttonDegistir.TabIndex = 10;
             buttonDegistir.Text = "Değiştir";
             buttonDegistir.UseVisualStyleBackColor = true;
+            buttonDegistir.Click += buttonDegistir_Click;
             // 
             // FormSifreDegistir
             // 
@@ -111,7 +115,7 @@
             Controls.Add(labelEskiSifre);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             Name = "FormSifreDegistir";
             StartPosition = FormStartPosition.CenterScreen;
