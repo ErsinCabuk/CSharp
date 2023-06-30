@@ -28,33 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBoxAdSoyad = new TextBox();
-            labelAdSoyad = new Label();
+            textBoxAd = new TextBox();
+            labelAd = new Label();
             buttonAra = new Button();
             listBoxCalisanlar = new ListBox();
             label1 = new Label();
             labelCalisanlar = new Label();
+            textBoxSoyad = new TextBox();
+            labelSoyad = new Label();
             SuspendLayout();
             // 
-            // textBoxAdSoyad
+            // textBoxAd
             // 
-            textBoxAdSoyad.Location = new Point(98, 12);
-            textBoxAdSoyad.Name = "textBoxAdSoyad";
-            textBoxAdSoyad.Size = new Size(150, 29);
-            textBoxAdSoyad.TabIndex = 6;
+            textBoxAd.Location = new Point(75, 12);
+            textBoxAd.MaxLength = 50;
+            textBoxAd.Name = "textBoxAd";
+            textBoxAd.Size = new Size(173, 29);
+            textBoxAd.TabIndex = 6;
             // 
-            // labelAdSoyad
+            // labelAd
             // 
-            labelAdSoyad.AutoSize = true;
-            labelAdSoyad.Location = new Point(13, 15);
-            labelAdSoyad.Name = "labelAdSoyad";
-            labelAdSoyad.Size = new Size(79, 21);
-            labelAdSoyad.TabIndex = 5;
-            labelAdSoyad.Text = "Ad Soyad:";
+            labelAd.AutoSize = true;
+            labelAd.Location = new Point(13, 15);
+            labelAd.Name = "labelAd";
+            labelAd.Size = new Size(32, 21);
+            labelAd.TabIndex = 5;
+            labelAd.Text = "Ad:";
             // 
             // buttonAra
             // 
-            buttonAra.Location = new Point(13, 47);
+            buttonAra.Location = new Point(13, 92);
             buttonAra.Name = "buttonAra";
             buttonAra.Size = new Size(235, 29);
             buttonAra.TabIndex = 7;
@@ -66,15 +69,16 @@
             // 
             listBoxCalisanlar.FormattingEnabled = true;
             listBoxCalisanlar.ItemHeight = 21;
-            listBoxCalisanlar.Location = new Point(13, 134);
+            listBoxCalisanlar.Location = new Point(13, 179);
             listBoxCalisanlar.Name = "listBoxCalisanlar";
             listBoxCalisanlar.Size = new Size(235, 172);
             listBoxCalisanlar.TabIndex = 8;
+            listBoxCalisanlar.DoubleClick += listBoxCalisanlar_DoubleClick;
             // 
             // label1
             // 
             label1.BorderStyle = BorderStyle.Fixed3D;
-            label1.Location = new Point(13, 89);
+            label1.Location = new Point(13, 134);
             label1.Name = "label1";
             label1.Size = new Size(235, 2);
             label1.TabIndex = 9;
@@ -82,23 +86,42 @@
             // labelCalisanlar
             // 
             labelCalisanlar.AutoSize = true;
-            labelCalisanlar.Location = new Point(88, 104);
+            labelCalisanlar.Location = new Point(88, 149);
             labelCalisanlar.Name = "labelCalisanlar";
             labelCalisanlar.Size = new Size(78, 21);
             labelCalisanlar.TabIndex = 10;
             labelCalisanlar.Text = "Çalışanlar";
             // 
+            // textBoxSoyad
+            // 
+            textBoxSoyad.Location = new Point(75, 47);
+            textBoxSoyad.MaxLength = 50;
+            textBoxSoyad.Name = "textBoxSoyad";
+            textBoxSoyad.Size = new Size(173, 29);
+            textBoxSoyad.TabIndex = 12;
+            // 
+            // labelSoyad
+            // 
+            labelSoyad.AutoSize = true;
+            labelSoyad.Location = new Point(13, 50);
+            labelSoyad.Name = "labelSoyad";
+            labelSoyad.Size = new Size(56, 21);
+            labelSoyad.TabIndex = 11;
+            labelSoyad.Text = "Soyad:";
+            // 
             // FormCalisanAra
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(262, 318);
+            ClientSize = new Size(262, 373);
+            Controls.Add(textBoxSoyad);
+            Controls.Add(labelSoyad);
             Controls.Add(labelCalisanlar);
             Controls.Add(label1);
             Controls.Add(listBoxCalisanlar);
             Controls.Add(buttonAra);
-            Controls.Add(textBoxAdSoyad);
-            Controls.Add(labelAdSoyad);
+            Controls.Add(textBoxAd);
+            Controls.Add(labelAd);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4);
@@ -112,11 +135,13 @@
 
         #endregion
 
-        private TextBox textBoxAdSoyad;
-        private Label labelAdSoyad;
+        private TextBox textBoxAd;
+        private Label labelAd;
         private Button buttonAra;
         private ListBox listBoxCalisanlar;
         private Label label1;
         private Label labelCalisanlar;
+        private TextBox textBoxSoyad;
+        private Label labelSoyad;
     }
 }

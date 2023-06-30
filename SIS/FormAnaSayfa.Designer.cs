@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             menu = new MenuStrip();
             menuItemMenu = new ToolStripMenuItem();
             menuItemSifreDegistir = new ToolStripMenuItem();
@@ -44,6 +45,7 @@
             statusItemKullanici = new ToolStripStatusLabel();
             statusItemTarih = new ToolStripStatusLabel();
             statusItemSaat = new ToolStripStatusLabel();
+            timerSaat = new System.Windows.Forms.Timer(components);
             menu.SuspendLayout();
             status.SuspendLayout();
             SuspendLayout();
@@ -64,65 +66,76 @@
             menuItemMenu.Name = "menuItemMenu";
             menuItemMenu.Size = new Size(50, 19);
             menuItemMenu.Text = "&Menü";
+            menuItemMenu.Click += menuItemMenu_Click;
             // 
             // menuItemSifreDegistir
             // 
             menuItemSifreDegistir.Name = "menuItemSifreDegistir";
             menuItemSifreDegistir.Size = new Size(190, 22);
             menuItemSifreDegistir.Text = "Şifre &Değiştir";
+            menuItemSifreDegistir.Click += menuItemSifreDegistir_Click;
             // 
             // menuItemSifreSifirla
             // 
             menuItemSifreSifirla.Name = "menuItemSifreSifirla";
             menuItemSifreSifirla.Size = new Size(190, 22);
             menuItemSifreSifirla.Text = "Şif&re Sıfırla";
+            menuItemSifreSifirla.Click += menuItemSifreSifirla_Click;
             // 
             // menuItemUzmanEkle
             // 
             menuItemUzmanEkle.Name = "menuItemUzmanEkle";
             menuItemUzmanEkle.Size = new Size(190, 22);
             menuItemUzmanEkle.Text = "&Uzman Ekle";
+            menuItemUzmanEkle.Click += menuItemUzmanEkle_Click;
             // 
             // menuItemSekreterEkle
             // 
             menuItemSekreterEkle.Name = "menuItemSekreterEkle";
             menuItemSekreterEkle.Size = new Size(190, 22);
             menuItemSekreterEkle.Text = "&Sekreter Ekle";
+            menuItemSekreterEkle.Click += menuItemSekreterEkle_Click;
             // 
             // menuItemCalisanAra
             // 
             menuItemCalisanAra.Name = "menuItemCalisanAra";
             menuItemCalisanAra.Size = new Size(190, 22);
             menuItemCalisanAra.Text = "Çalışan &Ara";
+            menuItemCalisanAra.Click += menuItemCalisanAra_Click;
             // 
             // menuItemRandevuYonet
             // 
             menuItemRandevuYonet.Name = "menuItemRandevuYonet";
             menuItemRandevuYonet.Size = new Size(190, 22);
             menuItemRandevuYonet.Text = "&Randevu Yönet";
+            menuItemRandevuYonet.Click += menuItemRandevuYonet_Click;
             // 
             // menuItemSeansYonetSekreter
             // 
             menuItemSeansYonetSekreter.Name = "menuItemSeansYonetSekreter";
             menuItemSeansYonetSekreter.Size = new Size(190, 22);
             menuItemSeansYonetSekreter.Text = "&Seans Yönet (Sekreter)";
+            menuItemSeansYonetSekreter.Click += menuItemSeansYonetSekreter_Click;
             // 
             // menuItemSeansYonetUzman
             // 
             menuItemSeansYonetUzman.Name = "menuItemSeansYonetUzman";
             menuItemSeansYonetUzman.Size = new Size(190, 22);
             menuItemSeansYonetUzman.Text = "&Seans Yönet (Uzman)";
+            menuItemSeansYonetUzman.Click += menuItemSeansYonetUzman_Click;
             // 
             // menuItemAyrac
             // 
             menuItemAyrac.Name = "menuItemAyrac";
             menuItemAyrac.Size = new Size(187, 6);
+            menuItemAyrac.Click += menuItemAyrac_Click;
             // 
             // menuItemCikis
             // 
             menuItemCikis.Name = "menuItemCikis";
             menuItemCikis.Size = new Size(190, 22);
             menuItemCikis.Text = "&Çıkış";
+            menuItemCikis.Click += menuItemCikis_Click;
             // 
             // status
             // 
@@ -154,6 +167,11 @@
             statusItemSaat.Size = new Size(34, 17);
             statusItemSaat.Text = "18:09";
             // 
+            // timerSaat
+            // 
+            timerSaat.Interval = 1000;
+            timerSaat.Tick += timerSaat_Tick;
+            // 
             // FormAnaSayfa
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
@@ -163,11 +181,12 @@
             Controls.Add(menu);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             Name = "FormAnaSayfa";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SIS Ana Sayfa";
+            Load += FormAnaSayfa_Load;
             menu.ResumeLayout(false);
             menu.PerformLayout();
             status.ResumeLayout(false);
@@ -194,5 +213,6 @@
         private ToolStripStatusLabel statusItemKullanici;
         private ToolStripStatusLabel statusItemTarih;
         private ToolStripStatusLabel statusItemSaat;
+        private System.Windows.Forms.Timer timerSaat;
     }
 }

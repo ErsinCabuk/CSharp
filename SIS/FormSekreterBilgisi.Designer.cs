@@ -30,15 +30,15 @@
         {
             labelTCKimlikNo = new Label();
             textBoxTCKimlikNo = new TextBox();
-            textBoxAdSoyad = new TextBox();
-            labelAdSoyad = new Label();
+            textBoxAd = new TextBox();
+            labelAd = new Label();
             textBoxEPosta = new TextBox();
             labelEPosta = new Label();
             textBoxTelefonNo = new TextBox();
             labelTelefonNo = new Label();
-            textBoxGSMNo = new TextBox();
-            labelGSMNo = new Label();
             buttonKaydet = new Button();
+            textBoxSoyad = new TextBox();
+            labelSoyad = new Label();
             SuspendLayout();
             // 
             // labelTCKimlikNo
@@ -53,29 +53,32 @@
             // textBoxTCKimlikNo
             // 
             textBoxTCKimlikNo.Location = new Point(120, 12);
+            textBoxTCKimlikNo.MaxLength = 11;
             textBoxTCKimlikNo.Name = "textBoxTCKimlikNo";
             textBoxTCKimlikNo.Size = new Size(150, 29);
             textBoxTCKimlikNo.TabIndex = 2;
             // 
-            // textBoxAdSoyad
+            // textBoxAd
             // 
-            textBoxAdSoyad.Location = new Point(120, 47);
-            textBoxAdSoyad.Name = "textBoxAdSoyad";
-            textBoxAdSoyad.Size = new Size(150, 29);
-            textBoxAdSoyad.TabIndex = 4;
+            textBoxAd.Location = new Point(120, 47);
+            textBoxAd.MaxLength = 50;
+            textBoxAd.Name = "textBoxAd";
+            textBoxAd.Size = new Size(150, 29);
+            textBoxAd.TabIndex = 4;
             // 
-            // labelAdSoyad
+            // labelAd
             // 
-            labelAdSoyad.AutoSize = true;
-            labelAdSoyad.Location = new Point(12, 50);
-            labelAdSoyad.Name = "labelAdSoyad";
-            labelAdSoyad.Size = new Size(79, 21);
-            labelAdSoyad.TabIndex = 3;
-            labelAdSoyad.Text = "Ad Soyad:";
+            labelAd.AutoSize = true;
+            labelAd.Location = new Point(12, 50);
+            labelAd.Name = "labelAd";
+            labelAd.Size = new Size(32, 21);
+            labelAd.TabIndex = 3;
+            labelAd.Text = "Ad:";
             // 
             // textBoxEPosta
             // 
-            textBoxEPosta.Location = new Point(120, 82);
+            textBoxEPosta.Location = new Point(120, 117);
+            textBoxEPosta.MaxLength = 50;
             textBoxEPosta.Name = "textBoxEPosta";
             textBoxEPosta.Size = new Size(150, 29);
             textBoxEPosta.TabIndex = 8;
@@ -83,7 +86,7 @@
             // labelEPosta
             // 
             labelEPosta.AutoSize = true;
-            labelEPosta.Location = new Point(12, 85);
+            labelEPosta.Location = new Point(12, 120);
             labelEPosta.Name = "labelEPosta";
             labelEPosta.Size = new Size(64, 21);
             labelEPosta.TabIndex = 7;
@@ -91,7 +94,8 @@
             // 
             // textBoxTelefonNo
             // 
-            textBoxTelefonNo.Location = new Point(120, 117);
+            textBoxTelefonNo.Location = new Point(120, 152);
+            textBoxTelefonNo.MaxLength = 50;
             textBoxTelefonNo.Name = "textBoxTelefonNo";
             textBoxTelefonNo.Size = new Size(150, 29);
             textBoxTelefonNo.TabIndex = 10;
@@ -99,27 +103,11 @@
             // labelTelefonNo
             // 
             labelTelefonNo.AutoSize = true;
-            labelTelefonNo.Location = new Point(12, 120);
+            labelTelefonNo.Location = new Point(12, 155);
             labelTelefonNo.Name = "labelTelefonNo";
             labelTelefonNo.Size = new Size(87, 21);
             labelTelefonNo.TabIndex = 9;
             labelTelefonNo.Text = "Telefon No:";
-            // 
-            // textBoxGSMNo
-            // 
-            textBoxGSMNo.Location = new Point(120, 152);
-            textBoxGSMNo.Name = "textBoxGSMNo";
-            textBoxGSMNo.Size = new Size(150, 29);
-            textBoxGSMNo.TabIndex = 12;
-            // 
-            // labelGSMNo
-            // 
-            labelGSMNo.AutoSize = true;
-            labelGSMNo.Location = new Point(12, 155);
-            labelGSMNo.Name = "labelGSMNo";
-            labelGSMNo.Size = new Size(72, 21);
-            labelGSMNo.TabIndex = 11;
-            labelGSMNo.Text = "GSM No:";
             // 
             // buttonKaydet
             // 
@@ -129,21 +117,39 @@
             buttonKaydet.TabIndex = 13;
             buttonKaydet.Text = "Kaydet";
             buttonKaydet.UseVisualStyleBackColor = true;
+            buttonKaydet.Click += buttonKaydet_Click;
+            // 
+            // textBoxSoyad
+            // 
+            textBoxSoyad.Location = new Point(120, 82);
+            textBoxSoyad.MaxLength = 50;
+            textBoxSoyad.Name = "textBoxSoyad";
+            textBoxSoyad.Size = new Size(150, 29);
+            textBoxSoyad.TabIndex = 15;
+            // 
+            // labelSoyad
+            // 
+            labelSoyad.AutoSize = true;
+            labelSoyad.Location = new Point(12, 85);
+            labelSoyad.Name = "labelSoyad";
+            labelSoyad.Size = new Size(56, 21);
+            labelSoyad.TabIndex = 14;
+            labelSoyad.Text = "Soyad:";
             // 
             // FormSekreterBilgisi
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(284, 227);
+            ClientSize = new Size(284, 226);
+            Controls.Add(textBoxSoyad);
+            Controls.Add(labelSoyad);
             Controls.Add(buttonKaydet);
-            Controls.Add(textBoxGSMNo);
-            Controls.Add(labelGSMNo);
             Controls.Add(textBoxTelefonNo);
             Controls.Add(labelTelefonNo);
             Controls.Add(textBoxEPosta);
             Controls.Add(labelEPosta);
-            Controls.Add(textBoxAdSoyad);
-            Controls.Add(labelAdSoyad);
+            Controls.Add(textBoxAd);
+            Controls.Add(labelAd);
             Controls.Add(textBoxTCKimlikNo);
             Controls.Add(labelTCKimlikNo);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -153,6 +159,7 @@
             Name = "FormSekreterBilgisi";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sekreter";
+            Load += FormSekreterBilgisi_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -160,14 +167,14 @@
         #endregion
         private Label labelTCKimlikNo;
         private TextBox textBoxTCKimlikNo;
-        private TextBox textBoxAdSoyad;
-        private Label labelAdSoyad;
+        private TextBox textBoxAd;
+        private Label labelAd;
         private TextBox textBoxEPosta;
         private Label labelEPosta;
         private TextBox textBoxTelefonNo;
         private Label labelTelefonNo;
-        private TextBox textBoxGSMNo;
-        private Label labelGSMNo;
         private Button buttonKaydet;
+        private TextBox textBoxSoyad;
+        private Label labelSoyad;
     }
 }

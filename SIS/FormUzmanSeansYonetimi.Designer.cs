@@ -48,10 +48,10 @@
             labelTCKimlikNo = new Label();
             labelTCKimlikNoBaslik = new Label();
             groupBoxHastaGecmisi = new GroupBox();
-            labelSeanslar2 = new Label();
-            listBoxSeanslar = new ListBox();
-            textBoxGecmisSeansNotu = new TextBox();
             buttonGecmisSeansNotuDuzenle = new Button();
+            textBoxGecmisSeansNotu = new TextBox();
+            listBoxSeanslar = new ListBox();
+            labelSeanslar2 = new Label();
             groupBoxSeansNotu = new GroupBox();
             buttonSeansNotuKaydet = new Button();
             textBoxSeansNotu = new TextBox();
@@ -252,23 +252,14 @@
             groupBoxHastaGecmisi.TabStop = false;
             groupBoxHastaGecmisi.Text = "Hasta Geçmişi";
             // 
-            // labelSeanslar2
+            // buttonGecmisSeansNotuDuzenle
             // 
-            labelSeanslar2.AutoSize = true;
-            labelSeanslar2.Location = new Point(138, 25);
-            labelSeanslar2.Name = "labelSeanslar2";
-            labelSeanslar2.Size = new Size(69, 21);
-            labelSeanslar2.TabIndex = 0;
-            labelSeanslar2.Text = "Seanslar";
-            // 
-            // listBoxSeanslar
-            // 
-            listBoxSeanslar.FormattingEnabled = true;
-            listBoxSeanslar.ItemHeight = 21;
-            listBoxSeanslar.Location = new Point(6, 49);
-            listBoxSeanslar.Name = "listBoxSeanslar";
-            listBoxSeanslar.Size = new Size(343, 109);
-            listBoxSeanslar.TabIndex = 1;
+            buttonGecmisSeansNotuDuzenle.Location = new Point(6, 282);
+            buttonGecmisSeansNotuDuzenle.Name = "buttonGecmisSeansNotuDuzenle";
+            buttonGecmisSeansNotuDuzenle.Size = new Size(343, 29);
+            buttonGecmisSeansNotuDuzenle.TabIndex = 3;
+            buttonGecmisSeansNotuDuzenle.Text = "Düzenle";
+            buttonGecmisSeansNotuDuzenle.UseVisualStyleBackColor = true;
             // 
             // textBoxGecmisSeansNotu
             // 
@@ -279,14 +270,23 @@
             textBoxGecmisSeansNotu.Size = new Size(343, 111);
             textBoxGecmisSeansNotu.TabIndex = 2;
             // 
-            // buttonGecmisSeansNotuDuzenle
+            // listBoxSeanslar
             // 
-            buttonGecmisSeansNotuDuzenle.Location = new Point(6, 282);
-            buttonGecmisSeansNotuDuzenle.Name = "buttonGecmisSeansNotuDuzenle";
-            buttonGecmisSeansNotuDuzenle.Size = new Size(343, 29);
-            buttonGecmisSeansNotuDuzenle.TabIndex = 3;
-            buttonGecmisSeansNotuDuzenle.Text = "Düzenle";
-            buttonGecmisSeansNotuDuzenle.UseVisualStyleBackColor = true;
+            listBoxSeanslar.FormattingEnabled = true;
+            listBoxSeanslar.ItemHeight = 21;
+            listBoxSeanslar.Location = new Point(6, 49);
+            listBoxSeanslar.Name = "listBoxSeanslar";
+            listBoxSeanslar.Size = new Size(343, 109);
+            listBoxSeanslar.TabIndex = 1;
+            // 
+            // labelSeanslar2
+            // 
+            labelSeanslar2.AutoSize = true;
+            labelSeanslar2.Location = new Point(138, 25);
+            labelSeanslar2.Name = "labelSeanslar2";
+            labelSeanslar2.Size = new Size(69, 21);
+            labelSeanslar2.TabIndex = 0;
+            labelSeanslar2.Text = "Seanslar";
             // 
             // groupBoxSeansNotu
             // 
@@ -329,7 +329,7 @@
             Controls.Add(labelSeanslar);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             Name = "FormUzmanSeansYonetimi";
             StartPosition = FormStartPosition.CenterScreen;

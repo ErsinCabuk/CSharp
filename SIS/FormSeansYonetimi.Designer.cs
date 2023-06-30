@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             labelUzman = new Label();
-            comboBox1 = new ComboBox();
+            comboBoxUzman = new ComboBox();
             labelAyrac = new Label();
             labelSeanslar = new Label();
             listBoxSeanslar = new ListBox();
@@ -46,13 +46,13 @@
             labelUzman.TabIndex = 0;
             labelUzman.Text = "Uzman:";
             // 
-            // comboBox1
+            // comboBoxUzman
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(80, 12);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(150, 29);
-            comboBox1.TabIndex = 1;
+            comboBoxUzman.FormattingEnabled = true;
+            comboBoxUzman.Location = new Point(80, 12);
+            comboBoxUzman.Name = "comboBoxUzman";
+            comboBoxUzman.Size = new Size(332, 29);
+            comboBoxUzman.TabIndex = 1;
             // 
             // labelAyrac
             // 
@@ -108,11 +108,11 @@
             Controls.Add(listBoxSeanslar);
             Controls.Add(labelSeanslar);
             Controls.Add(labelAyrac);
-            Controls.Add(comboBox1);
+            Controls.Add(comboBoxUzman);
             Controls.Add(labelUzman);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             Name = "FormSeansYonetimi";
             StartPosition = FormStartPosition.CenterScreen;
@@ -124,7 +124,7 @@
         #endregion
 
         private Label labelUzman;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxUzman;
         private Label labelAyrac;
         private Label labelSeanslar;
         private ListBox listBoxSeanslar;

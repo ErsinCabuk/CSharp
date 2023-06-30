@@ -22,7 +22,7 @@ namespace SISVeriErisimKatmani
 
         internal Komut(string spAdi, SqlConnection baglantiGirdi)
         {
-            this.baglanti = baglantiGirdi;
+            baglanti = baglantiGirdi;
             KomutOlustur(spAdi);
         }
 

@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             buttonKaydet = new Button();
-            textBoxGSMNo = new TextBox();
-            labelGSMNo = new Label();
             textBoxTelefonNo = new TextBox();
             labelTelefonNo = new Label();
             textBoxEPosta = new TextBox();
             labelEPosta = new Label();
-            textBoxAdSoyad = new TextBox();
-            labelAdSoyad = new Label();
+            textBoxAd = new TextBox();
+            labelAd = new Label();
             textBoxTCKimlikNo = new TextBox();
             labelTCKimlikNo = new Label();
             textBoxUnvan = new TextBox();
             labelUnvan = new Label();
+            textBoxSoyad = new TextBox();
+            labelSoyad = new Label();
             SuspendLayout();
             // 
             // buttonKaydet
@@ -51,26 +51,12 @@
             buttonKaydet.TabIndex = 24;
             buttonKaydet.Text = "Kaydet";
             buttonKaydet.UseVisualStyleBackColor = true;
-            // 
-            // textBoxGSMNo
-            // 
-            textBoxGSMNo.Location = new Point(120, 187);
-            textBoxGSMNo.Name = "textBoxGSMNo";
-            textBoxGSMNo.Size = new Size(150, 29);
-            textBoxGSMNo.TabIndex = 23;
-            // 
-            // labelGSMNo
-            // 
-            labelGSMNo.AutoSize = true;
-            labelGSMNo.Location = new Point(12, 190);
-            labelGSMNo.Name = "labelGSMNo";
-            labelGSMNo.Size = new Size(72, 21);
-            labelGSMNo.TabIndex = 22;
-            labelGSMNo.Text = "GSM No:";
+            buttonKaydet.Click += buttonKaydet_Click;
             // 
             // textBoxTelefonNo
             // 
-            textBoxTelefonNo.Location = new Point(120, 152);
+            textBoxTelefonNo.Location = new Point(120, 187);
+            textBoxTelefonNo.MaxLength = 50;
             textBoxTelefonNo.Name = "textBoxTelefonNo";
             textBoxTelefonNo.Size = new Size(150, 29);
             textBoxTelefonNo.TabIndex = 21;
@@ -78,7 +64,7 @@
             // labelTelefonNo
             // 
             labelTelefonNo.AutoSize = true;
-            labelTelefonNo.Location = new Point(12, 155);
+            labelTelefonNo.Location = new Point(12, 190);
             labelTelefonNo.Name = "labelTelefonNo";
             labelTelefonNo.Size = new Size(87, 21);
             labelTelefonNo.TabIndex = 20;
@@ -86,7 +72,8 @@
             // 
             // textBoxEPosta
             // 
-            textBoxEPosta.Location = new Point(120, 117);
+            textBoxEPosta.Location = new Point(120, 152);
+            textBoxEPosta.MaxLength = 50;
             textBoxEPosta.Name = "textBoxEPosta";
             textBoxEPosta.Size = new Size(150, 29);
             textBoxEPosta.TabIndex = 19;
@@ -94,31 +81,33 @@
             // labelEPosta
             // 
             labelEPosta.AutoSize = true;
-            labelEPosta.Location = new Point(12, 120);
+            labelEPosta.Location = new Point(12, 155);
             labelEPosta.Name = "labelEPosta";
             labelEPosta.Size = new Size(64, 21);
             labelEPosta.TabIndex = 18;
             labelEPosta.Text = "E-Posta:";
             // 
-            // textBoxAdSoyad
+            // textBoxAd
             // 
-            textBoxAdSoyad.Location = new Point(120, 47);
-            textBoxAdSoyad.Name = "textBoxAdSoyad";
-            textBoxAdSoyad.Size = new Size(150, 29);
-            textBoxAdSoyad.TabIndex = 17;
+            textBoxAd.Location = new Point(120, 47);
+            textBoxAd.MaxLength = 50;
+            textBoxAd.Name = "textBoxAd";
+            textBoxAd.Size = new Size(150, 29);
+            textBoxAd.TabIndex = 17;
             // 
-            // labelAdSoyad
+            // labelAd
             // 
-            labelAdSoyad.AutoSize = true;
-            labelAdSoyad.Location = new Point(12, 50);
-            labelAdSoyad.Name = "labelAdSoyad";
-            labelAdSoyad.Size = new Size(79, 21);
-            labelAdSoyad.TabIndex = 16;
-            labelAdSoyad.Text = "Ad Soyad:";
+            labelAd.AutoSize = true;
+            labelAd.Location = new Point(12, 50);
+            labelAd.Name = "labelAd";
+            labelAd.Size = new Size(32, 21);
+            labelAd.TabIndex = 16;
+            labelAd.Text = "Ad:";
             // 
             // textBoxTCKimlikNo
             // 
             textBoxTCKimlikNo.Location = new Point(120, 12);
+            textBoxTCKimlikNo.MaxLength = 11;
             textBoxTCKimlikNo.Name = "textBoxTCKimlikNo";
             textBoxTCKimlikNo.Size = new Size(150, 29);
             textBoxTCKimlikNo.TabIndex = 15;
@@ -134,7 +123,8 @@
             // 
             // textBoxUnvan
             // 
-            textBoxUnvan.Location = new Point(120, 82);
+            textBoxUnvan.Location = new Point(120, 117);
+            textBoxUnvan.MaxLength = 50;
             textBoxUnvan.Name = "textBoxUnvan";
             textBoxUnvan.Size = new Size(150, 29);
             textBoxUnvan.TabIndex = 26;
@@ -142,37 +132,55 @@
             // labelUnvan
             // 
             labelUnvan.AutoSize = true;
-            labelUnvan.Location = new Point(12, 85);
+            labelUnvan.Location = new Point(12, 120);
             labelUnvan.Name = "labelUnvan";
             labelUnvan.Size = new Size(58, 21);
             labelUnvan.TabIndex = 25;
             labelUnvan.Text = "Ünvan:";
             // 
+            // textBoxSoyad
+            // 
+            textBoxSoyad.Location = new Point(120, 82);
+            textBoxSoyad.MaxLength = 50;
+            textBoxSoyad.Name = "textBoxSoyad";
+            textBoxSoyad.Size = new Size(150, 29);
+            textBoxSoyad.TabIndex = 28;
+            // 
+            // labelSoyad
+            // 
+            labelSoyad.AutoSize = true;
+            labelSoyad.Location = new Point(12, 85);
+            labelSoyad.Name = "labelSoyad";
+            labelSoyad.Size = new Size(56, 21);
+            labelSoyad.TabIndex = 27;
+            labelSoyad.Text = "Soyad:";
+            // 
             // FormUzmanBilgisi
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(280, 262);
+            ClientSize = new Size(280, 257);
+            Controls.Add(textBoxSoyad);
+            Controls.Add(labelSoyad);
             Controls.Add(textBoxUnvan);
             Controls.Add(labelUnvan);
             Controls.Add(buttonKaydet);
-            Controls.Add(textBoxGSMNo);
-            Controls.Add(labelGSMNo);
             Controls.Add(textBoxTelefonNo);
             Controls.Add(labelTelefonNo);
             Controls.Add(textBoxEPosta);
             Controls.Add(labelEPosta);
-            Controls.Add(textBoxAdSoyad);
-            Controls.Add(labelAdSoyad);
+            Controls.Add(textBoxAd);
+            Controls.Add(labelAd);
             Controls.Add(textBoxTCKimlikNo);
             Controls.Add(labelTCKimlikNo);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.FixedSingle;
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             MaximizeBox = false;
             Name = "FormUzmanBilgisi";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Uzman";
+            Load += FormUzmanBilgisi_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -180,17 +188,17 @@
         #endregion
 
         private Button buttonKaydet;
-        private TextBox textBoxGSMNo;
-        private Label labelGSMNo;
         private TextBox textBoxTelefonNo;
         private Label labelTelefonNo;
         private TextBox textBoxEPosta;
         private Label labelEPosta;
-        private TextBox textBoxAdSoyad;
-        private Label labelAdSoyad;
+        private TextBox textBoxAd;
+        private Label labelAd;
         private TextBox textBoxTCKimlikNo;
         private Label labelTCKimlikNo;
         private TextBox textBoxUnvan;
         private Label labelUnvan;
+        private TextBox textBoxSoyad;
+        private Label labelSoyad;
     }
 }

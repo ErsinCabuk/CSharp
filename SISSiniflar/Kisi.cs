@@ -10,7 +10,8 @@ namespace SISSiniflar
     {
         protected int no;
         protected string tcKimlikNo = String.Empty;
-        protected string adSoyad = String.Empty;
+        protected string ad = String.Empty;
+        protected string soyad = String.Empty;
         protected string eposta = String.Empty;
         protected string telefonNo = String.Empty;
 
@@ -26,13 +27,19 @@ namespace SISSiniflar
             set { tcKimlikNo = value; }
         }
 
-        public string AdSoyad
+        public string Ad
         {
-            get { return adSoyad; }
-            set { adSoyad = value; }
+            get { return ad; }
+            set { ad = value; }
         }
 
-        public String Eposta
+        public string Soyad
+        {
+            get { return soyad; }
+            set { soyad = value; }
+        }
+
+        public String EPosta
         {
             get { return eposta; }
             set { eposta = value; }
@@ -42,6 +49,11 @@ namespace SISSiniflar
         { 
             get { return telefonNo; } 
             set {  telefonNo = value; } 
+        }
+
+        public virtual string GoruntuMetni
+        {
+            get { return string.Format("{0} {1}", ad, soyad); }
         }
     }
 }

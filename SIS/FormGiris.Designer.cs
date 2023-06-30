@@ -47,6 +47,7 @@
             // textBoxKullanici
             // 
             textBoxKullanici.Location = new Point(89, 12);
+            textBoxKullanici.MaxLength = 100;
             textBoxKullanici.Name = "textBoxKullanici";
             textBoxKullanici.Size = new Size(150, 29);
             textBoxKullanici.TabIndex = 1;
@@ -54,6 +55,7 @@
             // textBoxSifre
             // 
             textBoxSifre.Location = new Point(89, 47);
+            textBoxSifre.MaxLength = 10;
             textBoxSifre.Name = "textBoxSifre";
             textBoxSifre.PasswordChar = '*';
             textBoxSifre.Size = new Size(150, 29);
@@ -76,6 +78,7 @@
             buttonGiris.TabIndex = 4;
             buttonGiris.Text = "Giriş";
             buttonGiris.UseVisualStyleBackColor = true;
+            buttonGiris.Click += buttonGiris_Click;
             // 
             // FormGiris
             // 
@@ -94,6 +97,7 @@
             Name = "FormGiris";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Giriş";
+            Load += FormGiris_Load;
             ResumeLayout(false);
             PerformLayout();
         }

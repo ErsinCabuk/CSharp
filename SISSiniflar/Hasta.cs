@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SISSiniflar
 {
-    public class Hasta:Kisi
+    public class Hasta: Kisi
     {
         private DateTime dogumTarihi = DateTime.MinValue;
         private string cinsiyet = String.Empty;
@@ -30,11 +30,11 @@ namespace SISSiniflar
             set { adres = value; }
         }
 
-        public string GoruntuMetni
+        public override string GoruntuMetni
         {
             get
             {
-                return string.Format("{0}, {1}", adSoyad, telefonNo);
+                return string.Format("{0} {1} - {2}", ad, soyad, telefonNo);
             }
         }
     }
