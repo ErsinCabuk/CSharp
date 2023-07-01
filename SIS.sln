@@ -5,11 +5,11 @@ VisualStudioVersion = 17.6.33723.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SIS", "SIS\SIS.csproj", "{475A1C72-35A3-46B7-B080-254B2F34A959}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SISSiniflar", "SISSiniflar\SISSiniflar.csproj", "{8BE9CA6E-0F42-429D-AC8D-0FE82E910B60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SISSiniflar", "SISSiniflar\SISSiniflar.csproj", "{8BE9CA6E-0F42-429D-AC8D-0FE82E910B60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SISIsKatmani", "SISIsKatmani\SISIsKatmani.csproj", "{69F54873-23E9-4199-845E-FDC40F21F65B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SISIsKatmani", "SISIsKatmani\SISIsKatmani.csproj", "{69F54873-23E9-4199-845E-FDC40F21F65B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SISVeriErisimKatmani", "SISVeriErisimKatmani\SISVeriErisimKatmani.csproj", "{D1623F02-1EB8-41FE-A209-E375E38EF351}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SISVeriErisimKatmani", "SISVeriErisimKatmani\SISVeriErisimKatmani.csproj", "{D1623F02-1EB8-41FE-A209-E375E38EF351}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

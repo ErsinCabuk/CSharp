@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Reflection.Metadata.Ecma335;
-using System.Data;
 
 namespace SISVeriErisimKatmani
 {
-    internal class Baglanti
+    public class Baglanti
     {
-        static string baglantiMetni = "Server=.;Database=SIS; Integrated Security=SSPI";
-        
+        static string baglantiMetni = "Server=.\\SQLEXPRESS;Database=SIS; Integrated Security=SSPI";
+
         ///<summary>
         ///Yeni bir bağlantı oluşturularak yollanıyor.
         ///</summary>

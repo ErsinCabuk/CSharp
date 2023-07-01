@@ -1,14 +1,5 @@
-﻿using SISSiniflar;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using ISK = SISIsKatmani;
+using SIN = SISSiniflar;
 
 namespace SIS
 {
@@ -19,7 +10,7 @@ namespace SIS
             InitializeComponent();
         }
 
-        public Calisan calisan;
+        public SIN.Calisan calisan;
 
         private void SaatYaz()
         {
@@ -34,20 +25,20 @@ namespace SIS
 
             switch (calisan.CalisanTipi)
             {
-                case CalisanTipleri.SistemYoneticisi:
+                case SIN.Calisan.CalisanTipleri.SistemYoneticisi:
                     menuItemSekreterEkle.Visible = true;
                     menuItemSifreSifirla.Visible = true;
                     statusItemKullanici.Text += " (Sistem Yöneticisi)";
                     break;
 
-                case CalisanTipleri.Sekreter:
+                case SIN.Calisan.CalisanTipleri.Sekreter:
                     menuItemRandevuYonet.Visible = true;
                     menuItemSeansYonetSekreter.Visible = true;
                     menuItemUzmanEkle.Visible = true;
                     statusItemKullanici.Text += " (Sekreter)";
                     break;
 
-                case CalisanTipleri.Uzman:
+                case SIN.Calisan.CalisanTipleri.Uzman:
                     menuItemSeansYonetUzman.Visible = true;
                     statusItemKullanici.Text += " (Uzman)";
                     break;
@@ -55,6 +46,31 @@ namespace SIS
                 default:
                     break;
             }
+        }
+        private void FormAnaSayfa_Load(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormGiris form = new FormGiris();
+            form.ShowDialog();
+
+            if(Yardimci.KullaniciNo > 0)
+            {
+                SaatYaz();
+
+                try
+                {
+                    calisan = ISK.Calisan.CalisanGetir(Yardimci.KullaniciNo);
+                }
+                catch (Exception hata)
+                {
+                    Yardimci.HataKaydet(hata);
+                    MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                statusItemKullanici.Text = calisan.GoruntuMetni;
+
+                MenuYukle();
+            } else this.Close();
         }
 
         private void menuItemMenu_Click(object sender, EventArgs e)
@@ -126,10 +142,5 @@ namespace SIS
             SaatYaz();
         }
 
-        private void FormAnaSayfa_Load(object sender, EventArgs e)
-        {
-            SaatYaz();
-            
-        }
     }
 }

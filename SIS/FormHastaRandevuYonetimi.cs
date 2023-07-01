@@ -1,13 +1,5 @@
-﻿using SISSiniflar;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using ISK = SISIsKatmani;
+using SIN = SISSiniflar;
 
 namespace SIS
 {
@@ -18,9 +10,9 @@ namespace SIS
             InitializeComponent();
         }
 
-        public Hasta hasta = null;
-        private Seans sonRandevu = null;
-        private Seans sonSeans = null;
+        public SIN.Hasta hasta = null;
+        private SIN.Seans sonRandevu = null;
+        private SIN.Seans sonSeans = null;
 
         private void RandevuBilgisiYukle()
         {
@@ -96,7 +88,7 @@ namespace SIS
 
         private void listBoxHastalar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            hasta = (Hasta)listBoxHastalar.Items[listBoxHastalar.SelectedIndex];
+            hasta = (SIN.Hasta)listBoxHastalar.Items[listBoxHastalar.SelectedIndex];
             HastaBilgisiYukle();
             RandevuBilgisiYukle();
         }

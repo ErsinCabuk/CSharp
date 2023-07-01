@@ -82,6 +82,7 @@
             // 
             // FormGiris
             // 
+            AcceptButton = buttonGiris;
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(249, 119);
@@ -97,7 +98,6 @@
             Name = "FormGiris";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Giriş";
-            Load += FormGiris_Load;
             ResumeLayout(false);
             PerformLayout();
         }

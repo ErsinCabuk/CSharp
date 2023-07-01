@@ -1,14 +1,5 @@
-﻿using SISSiniflar;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+﻿using ISK = SISIsKatmani;
+using SIN = SISSiniflar;
 
 namespace SIS
 {
@@ -19,7 +10,7 @@ namespace SIS
             InitializeComponent();
         }
 
-        public Seans seans;
+        public SIN.Seans seans;
 
         private bool KullanıcıGirdisiDogrula()
         {
@@ -37,7 +28,7 @@ namespace SIS
         {
             labelUzman.Text = seans.UzmanBilgisi;
             labelSeans.Text = seans.GoruntuMetni;
-            seans.IptalEdenNo = Program.KullaniciNo;
+            seans.IptalEdenNo = Yardimci.KullaniciNo;
         }
 
         private void buttonIptalEt_Click(object sender, EventArgs e)

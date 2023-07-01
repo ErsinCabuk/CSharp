@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SISIsKatmani
 {
-    internal class Seans
+    public class Seans
     {
     }
 }

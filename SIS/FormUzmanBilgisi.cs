@@ -1,13 +1,5 @@
-﻿using SISSiniflar;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using SIN = SISSiniflar;
+using ISK = SISIsKatmani;
 
 namespace SIS
 {
@@ -18,9 +10,9 @@ namespace SIS
             InitializeComponent();
         }
 
-        public Calisan calisan;
+        public SIN.Calisan calisan;
 
-        private void UzmanYükle()
+        private void UzmanYukle()
         {
             textBoxAd.Text = calisan.Ad;
             textBoxSoyad.Text = calisan.Soyad;
@@ -50,12 +42,42 @@ namespace SIS
 
         private void FormUzmanBilgisi_Load(object sender, EventArgs e)
         {
-
+            if (calisan != null) UzmanYukle();
         }
 
         private void buttonKaydet_Click(object sender, EventArgs e)
         {
+            bool dogruMu = KullanıcıGirdisiDogrula();
 
+            if (!dogruMu) return;
+
+            if (calisan == null) calisan = new SIN.Calisan();
+
+            calisan.Ad = textBoxAd.Text;
+            calisan.Soyad = textBoxSoyad.Text;
+            calisan.TCKimlikNo = textBoxTCKimlikNo.Text;
+            calisan.Unvan = textBoxUnvan.Text;
+            calisan.EPosta = textBoxEPosta.Text;
+            calisan.TelefonNo = textBoxTelefonNo.Text;
+            calisan.CalisanTipi = SIN.Calisan.CalisanTipleri.Uzman;
+
+            int sonuc = 0;
+            try
+            {
+                sonuc = ISK.Calisan.Kaydet(calisan);
+            }
+            catch (Exception hata)
+            {
+                Yardimci.HataKaydet(hata);
+                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (sonuc > 0)
+            {
+                MessageBox.Show("Kaydedildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

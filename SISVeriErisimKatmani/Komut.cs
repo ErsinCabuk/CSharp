@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SISVeriErisimKatmani
 {
-    internal class Komut
+    public class Komut
     {
         private SqlConnection baglanti = null;
         private SqlCommand komut = null;
@@ -112,6 +113,7 @@ namespace SISVeriErisimKatmani
             if (sonuc == null) return 0;
 
             int deger = (int)sonuc;
+
             return deger;
         }
 
@@ -169,6 +171,14 @@ namespace SISVeriErisimKatmani
             int veri = -1;
             int indeks = sqlVeriOkuyucu.GetOrdinal(alan);
             if (!sqlVeriOkuyucu.IsDBNull(indeks)) veri = sqlVeriOkuyucu.GetInt32(indeks);
+            return veri;
+        }
+
+        internal static int Int16Getir(SqlDataReader sqlVeriOkuyucu, string alan)
+        {
+            int veri = -1;
+            int indeks = sqlVeriOkuyucu.GetOrdinal(alan);
+            if (!sqlVeriOkuyucu.IsDBNull(indeks)) veri = sqlVeriOkuyucu.GetInt16(indeks);
             return veri;
         }
 

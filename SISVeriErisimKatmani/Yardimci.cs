@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SISVeriErisimKatmani
 {
-    internal class Yardimci
+    public class Yardimci
     {
         public static void HataKaydet(Exception hata)
         {

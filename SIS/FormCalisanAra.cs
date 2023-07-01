@@ -1,14 +1,5 @@
-﻿using SISSiniflar;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SQLite;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using SIN = SISSiniflar;
+using ISK = SISIsKatmani;
 
 namespace SIS
 {
@@ -21,7 +12,22 @@ namespace SIS
 
         private void CalisanlariListele()
         {
+            SIN.Calisan[] calisanlar = null;
+            listBoxCalisanlar.DisplayMember = "GoruntuMetni";
 
+            try
+            {
+                calisanlar = ISK.Calisan.CalisanlariListele(textBoxAd.Text, textBoxSoyad.Text);
+            }
+            catch (Exception hata)
+            {
+                Yardimci.HataKaydet(hata);
+                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                listBoxCalisanlar.DataSource = calisanlar;
+            }
         }
 
         private void buttonAra_Click(object sender, EventArgs e)
@@ -32,14 +38,14 @@ namespace SIS
         private void listBoxCalisanlar_DoubleClick(object sender, EventArgs e)
         {
             int indeks = listBoxCalisanlar.SelectedIndex;
-            Calisan calisan = (Calisan)listBoxCalisanlar.SelectedItem;
-            if (calisan.CalisanTipi == CalisanTipleri.Sekreter)
+            SIN.Calisan calisan = (SIN.Calisan)listBoxCalisanlar.SelectedItem;
+            if (calisan.CalisanTipi == SIN.Calisan.CalisanTipleri.Sekreter)
             {
                 FormSekreterBilgisi form = new FormSekreterBilgisi();
                 form.calisan = calisan;
                 form.ShowDialog();
             }
-            else if (calisan.CalisanTipi == CalisanTipleri.Uzman)
+            else if (calisan.CalisanTipi == SIN.Calisan.CalisanTipleri.Uzman)
             {
                 FormUzmanBilgisi form = new FormUzmanBilgisi();
                 form.calisan = calisan;

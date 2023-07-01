@@ -1,14 +1,5 @@
-﻿using SISSiniflar;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+﻿using SIN = SISSiniflar;
+using ISK = SISIsKatmani;
 
 namespace SIS
 {
@@ -19,10 +10,10 @@ namespace SIS
             InitializeComponent();
         }
 
-        public Calisan uzman = null;
-        private Hasta hasta = null;
-        private Seans aktifSeans = null;
-        private Seans gecmisSeans = null;
+        public SIN.Calisan uzman = null;
+        private SIN.Hasta hasta = null;
+        private SIN.Seans aktifSeans = null;
+        private SIN.Seans gecmisSeans = null;
 
         private void UzmanSeanslariniYukle()
         {
@@ -36,7 +27,7 @@ namespace SIS
 
         private bool SeansNotuKaydet(int seansNo, string seansNotu)
         {
-
+            return true;
         }
 
         private void EkraniTemizle()
@@ -60,7 +51,7 @@ namespace SIS
 
         private void listBoxSeanslar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gecmisSeans = (Seans) listBoxSeanslar.SelectedItem;
+            gecmisSeans = (SIN.Seans) listBoxSeanslar.SelectedItem;
             if (gecmisSeans != null) textBoxGecmisSeansNotu.Text = gecmisSeans.SeansNotu;
         }
 

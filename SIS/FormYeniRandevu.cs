@@ -1,14 +1,5 @@
-﻿using SISSiniflar;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+﻿using SIN = SISSiniflar;
+using ISK = SISIsKatmani;
 
 namespace SIS
 {
@@ -19,9 +10,9 @@ namespace SIS
             InitializeComponent();
         }
 
-        public Hasta hasta;
-        private Calisan uzman;
-        private Seans seans;
+        public SIN.Hasta hasta;
+        private SIN.Calisan uzman;
+        private SIN.Seans seans;
 
         private void UzmanlariYukle()
         {
@@ -59,13 +50,13 @@ namespace SIS
 
         private void comboBoxUzman_SelectedIndexChanged(object sender, EventArgs e)
         {
-            uzman = (Calisan) comboBoxUzman.SelectedItem;
+            uzman = (SIN.Calisan) comboBoxUzman.SelectedItem;
             UzmanSeanslariniYukle();
         }
 
         private void comboBoxSeans_SelectedIndexChanged(object sender, EventArgs e)
         {
-            seans = (Seans) comboBoxSeans.SelectedItem;
+            seans = (SIN.Seans) comboBoxSeans.SelectedItem;
         }
 
         private void buttonKaydet_Click(object sender, EventArgs e)

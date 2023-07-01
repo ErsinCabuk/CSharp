@@ -35,8 +35,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SISIsKatmani\SISIsKatmani.csproj" />
     <ProjectReference Include="..\SISSiniflar\SISSiniflar.csproj" />
-    <ProjectReference Include="..\SISVeriErisimKatmani\SISVeriErisimKatmani.csproj" />
   </ItemGroup>
 
 </Project>

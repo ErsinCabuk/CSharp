@@ -41,8 +41,8 @@ namespace SISSiniflar
                 else return base.GoruntuMetni;
             }
         }
+        public enum CalisanTipleri
+        { SistemYoneticisi, Sekreter, Uzman }
     }
 
-    public enum CalisanTipleri
-    { SistemYoneticisi, Sekreter, Uzman }
 }

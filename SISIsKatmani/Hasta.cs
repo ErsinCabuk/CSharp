@@ -1,12 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SIN = SISSiniflar;
+using VEK = SISVeriErisimKatmani;
 
 namespace SISIsKatmani
 {
-    internal class Hasta
+    public class Hasta
     {
+        public static int Kaydet(SIN.Hasta hasta)
+        {
+            bool sonuc = false;
+
+            if (hasta.No > 0) sonuc = VEK.Hasta.Guncelle(hasta);
+            else sonuc = VEK.Hasta.Kaydet(hasta);
+
+            if (sonuc) return hasta.No;
+            else return 0;
+        }
     }
 }

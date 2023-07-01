@@ -1,13 +1,6 @@
-﻿using SISSiniflar;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using SIN = SISSiniflar;
+using ISK = SISIsKatmani;
+using System.Security.Authentication;
 
 namespace SIS
 {
@@ -18,7 +11,7 @@ namespace SIS
             InitializeComponent();
         }
 
-        public Hasta hasta;
+        public SIN.Hasta hasta;
 
         private void HastaYukle()
         {
@@ -46,12 +39,45 @@ namespace SIS
 
         private void FormHastaBilgisi_Load(object sender, EventArgs e)
         {
+            dateTimePickerDogumTarihi.Value = DateTime.Now;
+            comboBoxCinsiyet.SelectedIndex = 0;
 
+            if(hasta != null) HastaYukle();
         }
 
         private void buttonKaydet_Click(object sender, EventArgs e)
         {
+            bool dogruMu = KullanıcıGirdisiDogrula();
+            if (!dogruMu) return;
+            if(hasta == null) hasta = new SIN.Hasta();
 
+            hasta.Ad = textBoxAd.Text;
+            hasta.Adres = textBoxAdres.Text;
+            hasta.Soyad = textBoxSoyad.Text;
+            hasta.TCKimlikNo = textBoxTCKimlikNo.Text;
+            hasta.EPosta = textBoxEPosta.Text;
+            hasta.TelefonNo = textBoxTelefonNo.Text;
+            hasta.Cinsiyet = comboBoxCinsiyet.Items[comboBoxCinsiyet.SelectedIndex].ToString();
+            hasta.DogumTarihi = dateTimePickerDogumTarihi.Value;
+
+            int sonuc = 0;
+
+            try
+            {
+                sonuc = ISK.Hasta.Kaydet(hasta);
+            }
+            catch (Exception hata) 
+            {
+                Yardimci.HataKaydet(hata);
+                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (sonuc > 0)
+            {
+                MessageBox.Show("Kaydedildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

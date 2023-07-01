@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SISIsKatmani
 {
-    internal class Yardimci
+    public class Yardimci
     {
         public static void HataKaydet(Exception hata)
         {
@@ -41,7 +41,7 @@ namespace SISIsKatmani
             }
         }
 
-        public static string ParolaOlustur()
+        public static string SifreOlustur()
         {
             return "123";
         }
