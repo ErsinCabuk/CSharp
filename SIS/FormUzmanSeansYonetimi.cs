@@ -1,5 +1,6 @@
 ﻿using SIN = SISSiniflar;
 using ISK = SISIsKatmani;
+using System.Diagnostics;
 
 namespace SIS
 {
@@ -17,17 +18,69 @@ namespace SIS
 
         private void UzmanSeanslariniYukle()
         {
+            SIN.Seans[] seanslar = null;
 
+            try
+            {
+                seanslar = ISK.Seans.UzmanSeanslariniListele(uzman.No);
+            }
+            catch (Exception hata)
+            {
+                Yardimci.HataKaydet(hata);
+                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            comboBoxSeanslar.DataSource = seanslar;
+            comboBoxSeanslar.DisplayMember = "GoruntuMetni";
         }
 
         private void BilgileriYukle()
         {
+            if(hasta != null)
+            {
+                labelAd.Text = hasta.Ad;
+                labelAdres.Text = hasta.Adres;
+                labelTelefonNo.Text = hasta.TelefonNo;
+                labelCinsiyet.Text = hasta.Cinsiyet;
+                labelDogumTarihi.Text = hasta.DogumTarihi.ToShortDateString();
+                labelEPosta.Text = hasta.EPosta;
+                labelSoyad.Text = hasta.Soyad;
+                labelTCKimlikNo.Text = hasta.TCKimlikNo;
 
+                textBoxSeansNotu.Text = aktifSeans.SeansNotu;
+
+                SIN.Seans[] hastaSeanslari = null;
+
+                try
+                {
+                    hastaSeanslari = ISK.Seans.HastaSeanslariniListele(hasta.No);
+                }
+                catch (Exception hata)
+                {
+                    Yardimci.HataKaydet(hata);
+                    MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                listBoxSeanslar.DataSource = hastaSeanslari;
+                listBoxSeanslar.DisplayMember = "GoruntuMetni";
+            }
         }
 
         private bool SeansNotuKaydet(int seansNo, string seansNotu)
         {
-            return true;
+            bool sonuc = false;
+
+            try
+            {
+                sonuc = ISK.Seans.NotGuncelle(seansNo, seansNotu);
+            }
+            catch (Exception hata)
+            {
+                Yardimci.HataKaydet(hata);
+                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return sonuc;
         }
 
         private void EkraniTemizle()
@@ -46,7 +99,18 @@ namespace SIS
 
         private void FormUzmanSeansYonetimi_Load(object sender, EventArgs e)
         {
+            EkraniTemizle();
 
+            try
+            {
+                uzman = ISK.Calisan.CalisanGetir(Yardimci.KullaniciNo);
+            } catch (Exception hata) 
+            {
+                Yardimci.HataKaydet(hata);
+                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            UzmanSeanslariniYukle();
         }
 
         private void listBoxSeanslar_SelectedIndexChanged(object sender, EventArgs e)
@@ -57,7 +121,24 @@ namespace SIS
 
         private void comboBoxSeanslar_SelectedIndexChanged(object sender, EventArgs e)
         {
+            EkraniTemizle();
 
+            aktifSeans = (SIN.Seans) comboBoxSeanslar.SelectedItem;
+
+            if(aktifSeans.HastaNo > 0)
+            {
+                try
+                {
+                    hasta = ISK.Hasta.HastaGetir(aktifSeans.HastaNo);
+                }
+                catch (Exception hata)
+                {
+                    Yardimci.HataKaydet(hata);
+                    MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            BilgileriYukle();
         }
 
         private void buttonGecmisSeansNotuDuzenle_Click(object sender, EventArgs e)

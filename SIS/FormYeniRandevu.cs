@@ -16,11 +16,38 @@ namespace SIS
 
         private void UzmanlariYukle()
         {
+            SIN.Calisan[] calisanlar = null;
 
+            try
+            {
+                calisanlar = ISK.Calisan.UzmanlariListele();
+            }
+            catch (Exception hata)
+            {
+                Yardimci.HataKaydet(hata);
+                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            comboBoxUzman.DataSource = calisanlar;
+            comboBoxUzman.DisplayMember = "GoruntuMetni";
         }
 
         private void UzmanSeanslariniYukle()
         {
+            SIN.Seans[] seanslar = null;
+
+            try
+            {
+                seanslar = ISK.Seans.UzmanSeanslariniListele(uzman.No);
+            }
+            catch (Exception hata)
+            {
+                Yardimci.HataKaydet(hata);
+                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            comboBoxSeans.DataSource = seanslar;
+            comboBoxSeans.DisplayMember = "GoruntuMetni";
         }
 
         private bool KullanıcıGirdisiDogrula()
@@ -50,18 +77,39 @@ namespace SIS
 
         private void comboBoxUzman_SelectedIndexChanged(object sender, EventArgs e)
         {
-            uzman = (SIN.Calisan) comboBoxUzman.SelectedItem;
+            uzman = (SIN.Calisan)comboBoxUzman.SelectedItem;
             UzmanSeanslariniYukle();
         }
 
         private void comboBoxSeans_SelectedIndexChanged(object sender, EventArgs e)
         {
-            seans = (SIN.Seans) comboBoxSeans.SelectedItem;
+            seans = (SIN.Seans)comboBoxSeans.SelectedItem;
         }
 
         private void buttonKaydet_Click(object sender, EventArgs e)
         {
+            bool dogruMu = KullanıcıGirdisiDogrula();
+            if (!dogruMu) return;
 
+            bool sonuc = false;
+
+            try
+            {
+                seans.HastaNo = hasta.No;
+                sonuc = ISK.Seans.RandevuKaydet(seans.No, hasta.No);
+            }
+            catch (Exception hata)
+            {
+                Yardimci.HataKaydet(hata);
+                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (sonuc)
+            {
+                MessageBox.Show("Kaydedildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

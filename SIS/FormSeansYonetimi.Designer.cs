@@ -119,7 +119,7 @@
             MaximizeBox = false;
             Name = "FormSeansYonetimi";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormSeansYonetimi";
+            Text = "Seans Yönetimi";
             Load += FormSeansYonetimi_Load;
             ResumeLayout(false);
             PerformLayout();

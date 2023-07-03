@@ -1,5 +1,6 @@
 ﻿using SIN = SISSiniflar;
 using ISK = SISIsKatmani;
+using System.Diagnostics;
 
 namespace SIS
 {
@@ -14,14 +15,14 @@ namespace SIS
 
         private bool KullaniciGirdisiDogrula()
         {
-            if(string.IsNullOrEmpty(textBoxEskiSifre.Text))
+            if (string.IsNullOrEmpty(textBoxEskiSifre.Text))
             {
                 MessageBox.Show("Eski şifrenizi girin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxEskiSifre.Focus();
                 return false;
             }
 
-            if(string.IsNullOrEmpty(textBoxYeniSifre.Text))
+            if (string.IsNullOrEmpty(textBoxYeniSifre.Text))
             {
                 MessageBox.Show("Yeni şifrenizi girin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxYeniSifre.Focus();
@@ -35,7 +36,7 @@ namespace SIS
                 return false;
             }
 
-            if(textBoxYeniSifre.Text != textBoxYeniSifreTekrar.Text)
+            if (textBoxYeniSifre.Text != textBoxYeniSifreTekrar.Text)
             {
                 MessageBox.Show("Yeni şifreniz ve tekrarı aynı değil.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxYeniSifreTekrar.Focus();
@@ -59,7 +60,7 @@ namespace SIS
             catch (Exception hata)
             {
                 Yardimci.HataKaydet(hata);
-                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Servisde bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (sonuc)

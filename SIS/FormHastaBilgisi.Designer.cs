@@ -52,7 +52,7 @@
             buttonKaydet.Location = new Point(12, 324);
             buttonKaydet.Name = "buttonKaydet";
             buttonKaydet.Size = new Size(312, 29);
-            buttonKaydet.TabIndex = 37;
+            buttonKaydet.TabIndex = 9;
             buttonKaydet.Text = "Kaydet";
             buttonKaydet.UseVisualStyleBackColor = true;
             buttonKaydet.Click += buttonKaydet_Click;
@@ -63,7 +63,7 @@
             textBoxTelefonNo.MaxLength = 50;
             textBoxTelefonNo.Name = "textBoxTelefonNo";
             textBoxTelefonNo.Size = new Size(150, 29);
-            textBoxTelefonNo.TabIndex = 34;
+            textBoxTelefonNo.TabIndex = 7;
             // 
             // labelTelefonNo
             // 
@@ -80,7 +80,7 @@
             textBoxEPosta.MaxLength = 50;
             textBoxEPosta.Name = "textBoxEPosta";
             textBoxEPosta.Size = new Size(150, 29);
-            textBoxEPosta.TabIndex = 32;
+            textBoxEPosta.TabIndex = 6;
             // 
             // labelEPosta
             // 
@@ -97,7 +97,7 @@
             textBoxAd.MaxLength = 50;
             textBoxAd.Name = "textBoxAd";
             textBoxAd.Size = new Size(150, 29);
-            textBoxAd.TabIndex = 30;
+            textBoxAd.TabIndex = 2;
             // 
             // labelAd
             // 
@@ -114,7 +114,7 @@
             textBoxTCKimlikNo.MaxLength = 11;
             textBoxTCKimlikNo.Name = "textBoxTCKimlikNo";
             textBoxTCKimlikNo.Size = new Size(150, 29);
-            textBoxTCKimlikNo.TabIndex = 28;
+            textBoxTCKimlikNo.TabIndex = 1;
             // 
             // labelTCKimlikNo
             // 
@@ -132,7 +132,7 @@
             textBoxAdres.Multiline = true;
             textBoxAdres.Name = "textBoxAdres";
             textBoxAdres.Size = new Size(200, 58);
-            textBoxAdres.TabIndex = 39;
+            textBoxAdres.TabIndex = 8;
             // 
             // labelAdres
             // 
@@ -169,7 +169,7 @@
             comboBoxCinsiyet.Location = new Point(124, 155);
             comboBoxCinsiyet.Name = "comboBoxCinsiyet";
             comboBoxCinsiyet.Size = new Size(150, 29);
-            comboBoxCinsiyet.TabIndex = 44;
+            comboBoxCinsiyet.TabIndex = 5;
             // 
             // dateTimePickerDogumTarihi
             // 
@@ -177,7 +177,7 @@
             dateTimePickerDogumTarihi.Location = new Point(124, 120);
             dateTimePickerDogumTarihi.Name = "dateTimePickerDogumTarihi";
             dateTimePickerDogumTarihi.Size = new Size(150, 29);
-            dateTimePickerDogumTarihi.TabIndex = 45;
+            dateTimePickerDogumTarihi.TabIndex = 4;
             // 
             // textBoxSoyad
             // 
@@ -185,7 +185,7 @@
             textBoxSoyad.MaxLength = 50;
             textBoxSoyad.Name = "textBoxSoyad";
             textBoxSoyad.Size = new Size(150, 29);
-            textBoxSoyad.TabIndex = 47;
+            textBoxSoyad.TabIndex = 3;
             // 
             // labelSoyad
             // 
@@ -198,6 +198,7 @@
             // 
             // FormHastaBilgisi
             // 
+            AcceptButton = buttonKaydet;
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(335, 366);

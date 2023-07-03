@@ -16,12 +16,62 @@ namespace SIS
 
         private void RandevuBilgisiYukle()
         {
+            RandevuBilgisiTemizle();
 
+            try
+            {
+                sonRandevu = ISK.Seans.SonRandevuBilgisiGetir(hasta.No);
+            }
+            catch (Exception hata)
+            {
+                Yardimci.HataKaydet(hata);
+                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (sonRandevu != null)
+            {
+                labelSonRandevuSeans.Text = sonRandevu.GoruntuMetni;
+                labelSonRandevuUzman.Text = sonRandevu.UzmanBilgisi;
+                buttonRandevuIptalEt.Enabled = true;
+            }
+            else buttonYeniRandevu.Enabled = true;
+
+            try
+            {
+                sonSeans = ISK.Seans.SonSeansBilgisiGetir(hasta.No);
+            }
+            catch (Exception hata)
+            {
+                Yardimci.HataKaydet(hata);
+                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (sonSeans != null)
+            {
+                labelSonRandevuSeans.Text = sonSeans.GoruntuMetni;
+                labelSonRandevuUzman.Text = sonSeans.UzmanBilgisi;
+                labelSonSeansNot.Text = sonSeans.SeansNotu;
+            }
         }
 
         private void HastalariListele()
         {
+            listBoxHastalar.DisplayMember = "GoruntuMetni";
+            SIN.Hasta[] hastalar = null;
 
+            try
+            {
+                hastalar = ISK.Hasta.HastalariListele(textBoxAd.Text, textBoxSoyad.Text);
+            }
+            catch (Exception hata)
+            {
+                Yardimci.HataKaydet(hata);
+                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                listBoxHastalar.DataSource = hastalar;
+            }
         }
 
         private void HastaBilgisiYukle()
@@ -66,6 +116,7 @@ namespace SIS
         {
             HastaBilgisiTemizle();
             RandevuBilgisiTemizle();
+            HastalariListele();
         }
 
         private void buttonAra_Click(object sender, EventArgs e)
@@ -113,7 +164,23 @@ namespace SIS
 
         private void buttonRandevuIptalEt_Click(object sender, EventArgs e)
         {
+            DialogResult karar = MessageBox.Show("Randevu iptal edilsin mi?", "İptal", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (karar == DialogResult.Yes)
+            {
+                bool sonuc = false;
 
+                try
+                {
+                    sonuc = ISK.Seans.RandevuIptalEt(sonRandevu.No);
+                }
+                catch (Exception hata)
+                {
+                    Yardimci.HataKaydet(hata);
+                    MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (sonuc) RandevuBilgisiYukle();
+            }
         }
     }
 }

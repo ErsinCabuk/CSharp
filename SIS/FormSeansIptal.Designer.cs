@@ -100,6 +100,7 @@
             // 
             // FormSeansIptal
             // 
+            AcceptButton = buttonIptalEt;
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(326, 182);

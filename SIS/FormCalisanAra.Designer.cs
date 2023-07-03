@@ -44,7 +44,7 @@
             textBoxAd.MaxLength = 50;
             textBoxAd.Name = "textBoxAd";
             textBoxAd.Size = new Size(173, 29);
-            textBoxAd.TabIndex = 6;
+            textBoxAd.TabIndex = 2;
             // 
             // labelAd
             // 
@@ -60,7 +60,7 @@
             buttonAra.Location = new Point(13, 82);
             buttonAra.Name = "buttonAra";
             buttonAra.Size = new Size(235, 29);
-            buttonAra.TabIndex = 7;
+            buttonAra.TabIndex = 6;
             buttonAra.Text = "Ara";
             buttonAra.UseVisualStyleBackColor = true;
             buttonAra.Click += buttonAra_Click;
@@ -98,7 +98,7 @@
             textBoxSoyad.MaxLength = 50;
             textBoxSoyad.Name = "textBoxSoyad";
             textBoxSoyad.Size = new Size(173, 29);
-            textBoxSoyad.TabIndex = 12;
+            textBoxSoyad.TabIndex = 4;
             // 
             // labelSoyad
             // 
@@ -111,6 +111,7 @@
             // 
             // FormCalisanAra
             // 
+            AcceptButton = buttonAra;
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(262, 373);
@@ -129,6 +130,7 @@
             Name = "FormCalisanAra";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Çalışan Ara";
+            Load += FormCalisanAra_Load;
             ResumeLayout(false);
             PerformLayout();
         }

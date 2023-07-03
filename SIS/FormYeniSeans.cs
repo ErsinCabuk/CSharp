@@ -40,7 +40,34 @@ namespace SIS
 
         private void buttonKaydet_Click(object sender, EventArgs e)
         {
+            bool dogruMu = KullaniciGirdisiDogrula();
+            if (!dogruMu) return;
 
+            SIN.Seans seans = new SIN.Seans();
+            seans.UzmanNo = uzman.No;
+            seans.Tarih = dateTimePickerTarih.Value;
+            seans.BaslangicSaati = dateTimePickerBaslangicSaati.Value.ToShortTimeString();
+            seans.BitisSaati = dateTimePickerBitisSaati.Value.ToShortTimeString();
+
+            int sonuc = 0;
+
+            try
+            {
+                sonuc = ISK.Seans.Kaydet(seans);
+            }
+            catch (Exception hata)
+            {
+                Yardimci.HataKaydet(hata);
+                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (sonuc > 0)
+            {
+                MessageBox.Show("Kaydedildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else if (sonuc == -1) MessageBox.Show("Çakışma var.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

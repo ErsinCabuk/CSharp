@@ -51,7 +51,7 @@
             labelHasta.BorderStyle = BorderStyle.Fixed3D;
             labelHasta.Location = new Point(80, 9);
             labelHasta.Name = "labelHasta";
-            labelHasta.Size = new Size(150, 21);
+            labelHasta.Size = new Size(322, 21);
             labelHasta.TabIndex = 1;
             // 
             // labelUzman
@@ -69,7 +69,7 @@
             comboBoxUzman.FormattingEnabled = true;
             comboBoxUzman.Location = new Point(80, 38);
             comboBoxUzman.Name = "comboBoxUzman";
-            comboBoxUzman.Size = new Size(150, 29);
+            comboBoxUzman.Size = new Size(322, 29);
             comboBoxUzman.TabIndex = 3;
             comboBoxUzman.SelectedIndexChanged += comboBoxUzman_SelectedIndexChanged;
             // 
@@ -79,7 +79,7 @@
             comboBoxSeans.FormattingEnabled = true;
             comboBoxSeans.Location = new Point(80, 73);
             comboBoxSeans.Name = "comboBoxSeans";
-            comboBoxSeans.Size = new Size(150, 29);
+            comboBoxSeans.Size = new Size(322, 29);
             comboBoxSeans.TabIndex = 5;
             comboBoxSeans.SelectedIndexChanged += comboBoxSeans_SelectedIndexChanged;
             // 
@@ -96,7 +96,7 @@
             // 
             buttonKaydet.Location = new Point(12, 108);
             buttonKaydet.Name = "buttonKaydet";
-            buttonKaydet.Size = new Size(218, 29);
+            buttonKaydet.Size = new Size(390, 29);
             buttonKaydet.TabIndex = 6;
             buttonKaydet.Text = "Kaydet";
             buttonKaydet.UseVisualStyleBackColor = true;
@@ -106,7 +106,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(240, 149);
+            ClientSize = new Size(414, 149);
             Controls.Add(buttonKaydet);
             Controls.Add(comboBoxSeans);
             Controls.Add(labelSeans);

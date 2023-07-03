@@ -33,7 +33,27 @@ namespace SIS
 
         private void buttonIptalEt_Click(object sender, EventArgs e)
         {
+            bool dogruMu = KullanıcıGirdisiDogrula();
+            if (!dogruMu) return;
 
+            bool sonuc = false;
+
+            try
+            {
+                sonuc = ISK.Seans.IptalEt(seans);
+            }
+            catch (Exception hata)
+            {
+                Yardimci.HataKaydet(hata);
+                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (sonuc)
+            {
+                MessageBox.Show("Seans iptal edildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            else MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

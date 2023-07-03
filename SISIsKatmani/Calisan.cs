@@ -28,7 +28,7 @@ namespace SISIsKatmani
 
             if (sonuc)
             {
-                Yardimci.YeniSifreEpostaYolla(calisan.EPosta, calisan.Sifre);
+                //Yardimci.YeniSifreEpostaYolla(calisan.EPosta, calisan.Sifre);
                 return calisan.No;
             }
 
@@ -38,6 +38,11 @@ namespace SISIsKatmani
         public static SIN.Calisan[] CalisanlariListele(string ad, string soyad)
         {
             return VEK.Calisan.CalisanlariListele(ad, soyad);
+        }
+
+        public static SIN.Calisan[] UzmanlariListele()
+        {
+            return VEK.Calisan.UzmanlariListele();
         }
 
         public static bool SifreDegistir(int calisanNo, string yeniSifre)

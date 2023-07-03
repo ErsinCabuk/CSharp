@@ -14,11 +14,27 @@ namespace SIS
 
         private void UzmanlariYukle()
         {
-
+            comboBoxUzman.DataSource = ISK.Calisan.UzmanlariListele();
+            comboBoxUzman.DisplayMember = "GoruntuMetni";
         }
 
         private void UzmanSeanslariniYukle()
         {
+            SIN.Seans[] seanslar = null;
+            try
+            {
+                seanslar = ISK.Seans.UzmanSeanslariniListele(uzman.No);
+            }
+            catch (Exception hata)
+            {
+                Yardimci.HataKaydet(hata);
+                MessageBox.Show("Servisde bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            listBoxSeanslar.DataSource = seanslar;
+            listBoxSeanslar.DisplayMember = "GoruntuMetni";
+            if (listBoxSeanslar.Items.Count > 0 && listBoxSeanslar.SelectedIndex > -1) buttonSeansIptal.Enabled = true;
+            else buttonSeansIptal.Enabled = false;
 
         }
 
@@ -29,7 +45,7 @@ namespace SIS
 
         private void comboBoxUzman_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.uzman = (SIN.Calisan) comboBoxUzman.SelectedItem;
+            this.uzman = (SIN.Calisan)comboBoxUzman.SelectedItem;
             UzmanSeanslariniYukle();
         }
 

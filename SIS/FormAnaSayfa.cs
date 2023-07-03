@@ -35,6 +35,7 @@ namespace SIS
                     menuItemRandevuYonet.Visible = true;
                     menuItemSeansYonetSekreter.Visible = true;
                     menuItemUzmanEkle.Visible = true;
+                    menuItemCalisanAra.Visible = true;
                     statusItemKullanici.Text += " (Sekreter)";
                     break;
 
@@ -53,7 +54,7 @@ namespace SIS
             FormGiris form = new FormGiris();
             form.ShowDialog();
 
-            if(Yardimci.KullaniciNo > 0)
+            if (Yardimci.KullaniciNo > 0)
             {
                 SaatYaz();
 
@@ -70,7 +71,8 @@ namespace SIS
                 statusItemKullanici.Text = calisan.GoruntuMetni;
 
                 MenuYukle();
-            } else this.Close();
+            }
+            else this.Close();
         }
 
         private void menuItemMenu_Click(object sender, EventArgs e)

@@ -42,14 +42,14 @@ namespace SIS
             dateTimePickerDogumTarihi.Value = DateTime.Now;
             comboBoxCinsiyet.SelectedIndex = 0;
 
-            if(hasta != null) HastaYukle();
+            if (hasta != null) HastaYukle();
         }
 
         private void buttonKaydet_Click(object sender, EventArgs e)
         {
             bool dogruMu = KullanıcıGirdisiDogrula();
             if (!dogruMu) return;
-            if(hasta == null) hasta = new SIN.Hasta();
+            if (hasta == null) hasta = new SIN.Hasta();
 
             hasta.Ad = textBoxAd.Text;
             hasta.Adres = textBoxAdres.Text;
@@ -66,7 +66,7 @@ namespace SIS
             {
                 sonuc = ISK.Hasta.Kaydet(hasta);
             }
-            catch (Exception hata) 
+            catch (Exception hata)
             {
                 Yardimci.HataKaydet(hata);
                 MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);

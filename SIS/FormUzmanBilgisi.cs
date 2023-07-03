@@ -17,6 +17,7 @@ namespace SIS
             textBoxAd.Text = calisan.Ad;
             textBoxSoyad.Text = calisan.Soyad;
             textBoxEPosta.Text = calisan.EPosta;
+            textBoxUnvan.Text = calisan.Unvan;
             textBoxTelefonNo.Text = calisan.TelefonNo;
             textBoxTCKimlikNo.Text = calisan.TCKimlikNo;
         }
@@ -69,7 +70,7 @@ namespace SIS
             catch (Exception hata)
             {
                 Yardimci.HataKaydet(hata);
-                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Servisde bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (sonuc > 0)

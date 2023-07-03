@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using SIN = SISSiniflar;
 
 namespace SISVeriErisimKatmani
@@ -19,21 +20,6 @@ namespace SISVeriErisimKatmani
             return sonuc;
         }
 
-        public static SIN.Calisan CalisanGetir(int calisanNo)
-        {
-            SIN.Calisan calisan = null;
-
-            Komut komut = new Komut("prCalisanGetir");
-            komut.ParametreEkle("@calisanNo", calisanNo.ToString());
-            SqlDataReader sqlVeriOkuyucu = komut.IsletReader();
-            while (sqlVeriOkuyucu.Read()) calisan = CalisanBilgileriYukle(sqlVeriOkuyucu);
-
-            sqlVeriOkuyucu.Close();
-            komut.Temizle();
-
-            return calisan;
-        }
-
         private static SIN.Calisan CalisanBilgileriYukle(SqlDataReader sqlVeriOkuyucu)
         {
             SIN.Calisan calisan = new SIN.Calisan();
@@ -47,13 +33,29 @@ namespace SISVeriErisimKatmani
                 calisan.Soyad = Komut.StringGetir(sqlVeriOkuyucu, "Soyad");
                 calisan.TCKimlikNo = Komut.StringGetir(sqlVeriOkuyucu, "TCKimlikNo");
                 calisan.Unvan = Komut.StringGetir(sqlVeriOkuyucu, "Unvan");
-                calisan.CalisanTipi = (SIN.Calisan.CalisanTipleri)Komut.Int16Getir(sqlVeriOkuyucu, "CalisanTipi");
+                calisan.CalisanTipi = (SIN.Calisan.CalisanTipleri) Komut.Int16Getir(sqlVeriOkuyucu, "CalisanTipi");
+                calisan.Sifre = Komut.StringGetir(sqlVeriOkuyucu, "Sifre");
             }
             catch (Exception hata)
             {
                 Yardimci.HataKaydet(hata);
                 calisan = null;
             }
+
+            return calisan;
+        }
+
+        public static SIN.Calisan CalisanGetir(int calisanNo)
+        {
+            SIN.Calisan calisan = null;
+
+            Komut komut = new Komut("prCalisanGetir");
+            komut.ParametreEkle("@calisanNo", calisanNo);
+            SqlDataReader sqlVeriOkuyucu = komut.IsletReader();
+            while (sqlVeriOkuyucu.Read()) calisan = CalisanBilgileriYukle(sqlVeriOkuyucu);
+
+            sqlVeriOkuyucu.Close();
+            komut.Temizle();
 
             return calisan;
         }
@@ -70,7 +72,7 @@ namespace SISVeriErisimKatmani
             komut.ParametreEkle("@telefonNo", calisan.TelefonNo);
             komut.ParametreEkle("@eposta", calisan.EPosta);
             komut.ParametreEkle("@sifre", calisan.Sifre);
-            komut.ParametreEkle("@calisanTipi", calisan.CalisanTipi.ToString());
+            komut.ParametreEkle("@calisanTipi", calisan.CalisanTipi);
             komut.ParametreEkleOut("@calisanNo", SqlDbType.Int, 0);
 
             etkilenen = komut.Islet();
@@ -94,7 +96,8 @@ namespace SISVeriErisimKatmani
             komut.ParametreEkle("@telefonNo", calisan.TelefonNo);
             komut.ParametreEkle("@eposta", calisan.EPosta);
             komut.ParametreEkle("@sifre", calisan.Sifre);
-            komut.ParametreEkle("@calisanTipi", calisan.CalisanTipi.ToString());
+            komut.ParametreEkle("@calisanTipi", calisan.CalisanTipi);
+            komut.ParametreEkle("@calisanNo", calisan.No);
 
             etkilenen = komut.Islet();
             komut.Temizle();
@@ -108,7 +111,7 @@ namespace SISVeriErisimKatmani
 
             Komut komut = new Komut("prCalisanlariListele");
             komut.ParametreEkle("@ad", ad);
-            komut.ParametreEkle("@ad", soyad);
+            komut.ParametreEkle("@soyad", soyad);
 
             SqlDataReader sqlVeriOkuyucu = komut.IsletReader();
             while(sqlVeriOkuyucu.Read())
@@ -122,12 +125,30 @@ namespace SISVeriErisimKatmani
             return calisanlar.ToArray();
         }
 
+        public static SIN.Calisan[] UzmanlariListele()
+        {
+            List<SIN.Calisan> uzmanlar = new List<SIN.Calisan>();
+
+            Komut komut = new Komut("prCalisanUzmanlariListele");
+
+            SqlDataReader sqlVeriOkuyucu = komut.IsletReader();
+            while (sqlVeriOkuyucu.Read())
+            {
+                SIN.Calisan uzman = CalisanBilgileriYukle(sqlVeriOkuyucu);
+                uzmanlar.Add(uzman);
+            }
+            sqlVeriOkuyucu.Close();
+            komut.Temizle();
+
+            return uzmanlar.ToArray();
+        }
+
         public static bool SifreDegistir(int calisanNo, string yeniSifre)
         {
             bool sonuc = false;
 
             Komut komut = new Komut("prCalisanSifreDegistir");
-            komut.ParametreEkle("@calisanNo", calisanNo.ToString());
+            komut.ParametreEkle("@calisanNo", calisanNo);
             komut.ParametreEkle("@sifre", yeniSifre);
 
             sonuc = komut.IsletBool();

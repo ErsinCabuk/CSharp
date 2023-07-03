@@ -121,6 +121,7 @@
             // 
             // FormYeniSeans
             // 
+            AcceptButton = buttonKaydet;
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(293, 182);

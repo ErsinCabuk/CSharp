@@ -100,7 +100,7 @@
             textBoxSoyad.MaxLength = 50;
             textBoxSoyad.Name = "textBoxSoyad";
             textBoxSoyad.Size = new Size(150, 29);
-            textBoxSoyad.TabIndex = 8;
+            textBoxSoyad.TabIndex = 2;
             // 
             // labelAramaSoyadBaslik
             // 
@@ -116,7 +116,7 @@
             buttonYeniHasta.Location = new Point(6, 308);
             buttonYeniHasta.Name = "buttonYeniHasta";
             buttonYeniHasta.Size = new Size(212, 29);
-            buttonYeniHasta.TabIndex = 6;
+            buttonYeniHasta.TabIndex = 5;
             buttonYeniHasta.Text = "Yeni Hasta Ekle";
             buttonYeniHasta.UseVisualStyleBackColor = true;
             buttonYeniHasta.Click += buttonYeniHasta_Click;
@@ -128,7 +128,7 @@
             listBoxHastalar.Location = new Point(6, 172);
             listBoxHastalar.Name = "listBoxHastalar";
             listBoxHastalar.Size = new Size(212, 130);
-            listBoxHastalar.TabIndex = 5;
+            listBoxHastalar.TabIndex = 4;
             listBoxHastalar.SelectedIndexChanged += listBoxHastalar_SelectedIndexChanged;
             // 
             // labelHastalar
@@ -153,7 +153,7 @@
             buttonAra.Location = new Point(6, 96);
             buttonAra.Name = "buttonAra";
             buttonAra.Size = new Size(212, 29);
-            buttonAra.TabIndex = 2;
+            buttonAra.TabIndex = 3;
             buttonAra.Text = "Ara";
             buttonAra.UseVisualStyleBackColor = true;
             buttonAra.Click += buttonAra_Click;
@@ -223,7 +223,7 @@
             buttonHastaBilgileriniDuzenle.Location = new Point(6, 308);
             buttonHastaBilgileriniDuzenle.Name = "buttonHastaBilgileriniDuzenle";
             buttonHastaBilgileriniDuzenle.Size = new Size(312, 29);
-            buttonHastaBilgileriniDuzenle.TabIndex = 16;
+            buttonHastaBilgileriniDuzenle.TabIndex = 6;
             buttonHastaBilgileriniDuzenle.Text = "Hasta Bilgilerini Duzenle";
             buttonHastaBilgileriniDuzenle.UseVisualStyleBackColor = true;
             buttonHastaBilgileriniDuzenle.Click += buttonHastaBilgileriniDuzenle_Click;
@@ -436,7 +436,7 @@
             buttonRandevuIptalEt.Location = new Point(122, 106);
             buttonRandevuIptalEt.Name = "buttonRandevuIptalEt";
             buttonRandevuIptalEt.Size = new Size(112, 29);
-            buttonRandevuIptalEt.TabIndex = 21;
+            buttonRandevuIptalEt.TabIndex = 8;
             buttonRandevuIptalEt.Text = "İptal Et";
             buttonRandevuIptalEt.UseVisualStyleBackColor = true;
             buttonRandevuIptalEt.Click += buttonRandevuIptalEt_Click;
@@ -446,7 +446,7 @@
             buttonYeniRandevu.Location = new Point(6, 106);
             buttonYeniRandevu.Name = "buttonYeniRandevu";
             buttonYeniRandevu.Size = new Size(112, 29);
-            buttonYeniRandevu.TabIndex = 20;
+            buttonYeniRandevu.TabIndex = 7;
             buttonYeniRandevu.Text = "Yeni Randevu";
             buttonYeniRandevu.UseVisualStyleBackColor = true;
             buttonYeniRandevu.Click += buttonYeniRandevu_Click;
@@ -499,7 +499,7 @@
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(906, 383);
+            ClientSize = new Size(906, 373);
             Controls.Add(groupBoxRandevuBilgileri);
             Controls.Add(groupBoxHastaBilgileri);
             Controls.Add(groupBoxArama);

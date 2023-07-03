@@ -55,5 +55,10 @@ namespace SIS
             CalisanlariListele();
             listBoxCalisanlar.SelectedIndex = indeks;
         }
+
+        private void FormCalisanAra_Load(object sender, EventArgs e)
+        {
+            CalisanlariListele();
+        }
     }
 }

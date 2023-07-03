@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SISSiniflar;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -48,7 +49,7 @@ namespace SISVeriErisimKatmani
         ///<param name="ad">Paramtere adı</param>
         ///<param name="deger">Paramtere değeri</param>
         ///<returns>Yeni oluşturulan parametreyi döndürür.</returns>
-        internal SqlParameter ParametreEkle(string ad, string deger)
+        internal SqlParameter ParametreEkle(string ad, object deger)
         {
             SqlParameter parametre = new SqlParameter(ad, deger);
             komut.Parameters.Add(parametre);
@@ -72,15 +73,6 @@ namespace SISVeriErisimKatmani
             komut.Parameters.Add(parametre);
             return parametre;
         }
-
-        internal bool IsletBool()
-        {
-            object sonuc = IsletSkaler();
-            if(sonuc == null) return false;
-            bool deger = (bool)sonuc;
-            return deger;
-        }
-
         private object IsletSkaler()
         {
             object sonuc = null;
@@ -100,6 +92,13 @@ namespace SISVeriErisimKatmani
             }
             return sonuc;
         }
+
+        internal bool IsletBool()
+        {
+            object sonuc = IsletSkaler();
+            return sonuc == null ? false : (bool) sonuc;
+        }
+
 
         internal void Temizle()
         {

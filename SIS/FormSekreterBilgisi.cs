@@ -43,7 +43,7 @@ namespace SIS
 
         private void FormSekreterBilgisi_Load(object sender, EventArgs e)
         {
-            if(calisan != null) UzmanYukle();
+            if (calisan != null) UzmanYukle();
         }
 
         private void buttonKaydet_Click(object sender, EventArgs e)
@@ -72,11 +72,11 @@ namespace SIS
                 MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if(sonuc > 0)
+            if (sonuc > 0)
             {
                 MessageBox.Show("Kaydedildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
-            } 
+            }
             else MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }

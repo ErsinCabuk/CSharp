@@ -48,7 +48,7 @@
             buttonKaydet.Location = new Point(12, 222);
             buttonKaydet.Name = "buttonKaydet";
             buttonKaydet.Size = new Size(258, 29);
-            buttonKaydet.TabIndex = 24;
+            buttonKaydet.TabIndex = 27;
             buttonKaydet.Text = "Kaydet";
             buttonKaydet.UseVisualStyleBackColor = true;
             buttonKaydet.Click += buttonKaydet_Click;
@@ -59,7 +59,7 @@
             textBoxTelefonNo.MaxLength = 50;
             textBoxTelefonNo.Name = "textBoxTelefonNo";
             textBoxTelefonNo.Size = new Size(150, 29);
-            textBoxTelefonNo.TabIndex = 21;
+            textBoxTelefonNo.TabIndex = 26;
             // 
             // labelTelefonNo
             // 
@@ -76,7 +76,7 @@
             textBoxEPosta.MaxLength = 50;
             textBoxEPosta.Name = "textBoxEPosta";
             textBoxEPosta.Size = new Size(150, 29);
-            textBoxEPosta.TabIndex = 19;
+            textBoxEPosta.TabIndex = 25;
             // 
             // labelEPosta
             // 
@@ -127,7 +127,7 @@
             textBoxUnvan.MaxLength = 50;
             textBoxUnvan.Name = "textBoxUnvan";
             textBoxUnvan.Size = new Size(150, 29);
-            textBoxUnvan.TabIndex = 26;
+            textBoxUnvan.TabIndex = 21;
             // 
             // labelUnvan
             // 
@@ -144,7 +144,7 @@
             textBoxSoyad.MaxLength = 50;
             textBoxSoyad.Name = "textBoxSoyad";
             textBoxSoyad.Size = new Size(150, 29);
-            textBoxSoyad.TabIndex = 28;
+            textBoxSoyad.TabIndex = 19;
             // 
             // labelSoyad
             // 
@@ -157,6 +157,7 @@
             // 
             // FormUzmanBilgisi
             // 
+            AcceptButton = buttonKaydet;
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(280, 257);

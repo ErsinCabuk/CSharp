@@ -114,7 +114,7 @@
             buttonKaydet.Location = new Point(12, 187);
             buttonKaydet.Name = "buttonKaydet";
             buttonKaydet.Size = new Size(258, 29);
-            buttonKaydet.TabIndex = 13;
+            buttonKaydet.TabIndex = 12;
             buttonKaydet.Text = "Kaydet";
             buttonKaydet.UseVisualStyleBackColor = true;
             buttonKaydet.Click += buttonKaydet_Click;
@@ -125,7 +125,7 @@
             textBoxSoyad.MaxLength = 50;
             textBoxSoyad.Name = "textBoxSoyad";
             textBoxSoyad.Size = new Size(150, 29);
-            textBoxSoyad.TabIndex = 15;
+            textBoxSoyad.TabIndex = 6;
             // 
             // labelSoyad
             // 
@@ -138,6 +138,7 @@
             // 
             // FormSekreterBilgisi
             // 
+            AcceptButton = buttonKaydet;
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(284, 226);

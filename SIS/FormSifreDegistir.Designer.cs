@@ -103,6 +103,7 @@
             // 
             // FormSifreDegistir
             // 
+            AcceptButton = buttonDegistir;
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(312, 163);

@@ -15,5 +15,15 @@ namespace SISIsKatmani
             if (sonuc) return hasta.No;
             else return 0;
         }
+
+        public static SIN.Hasta[] HastalariListele(string ad, string soyad)
+        {
+            return VEK.Hasta.HastalariListele(ad, soyad);
+        }
+
+        public static SIN.Hasta HastaGetir(int hastaNo)
+        {
+            return VEK.Hasta.HastaGetir(hastaNo);
+        }
     }
 }
