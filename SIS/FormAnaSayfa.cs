@@ -26,16 +26,16 @@ namespace SIS
             switch (calisan.CalisanTipi)
             {
                 case SIN.Calisan.CalisanTipleri.SistemYoneticisi:
+                    menuItemUzmanEkle.Visible = true;
                     menuItemSekreterEkle.Visible = true;
                     menuItemSifreSifirla.Visible = true;
+                    menuItemCalisanAra.Visible = true;
                     statusItemKullanici.Text += " (Sistem Yöneticisi)";
                     break;
 
                 case SIN.Calisan.CalisanTipleri.Sekreter:
                     menuItemRandevuYonet.Visible = true;
                     menuItemSeansYonetSekreter.Visible = true;
-                    menuItemUzmanEkle.Visible = true;
-                    menuItemCalisanAra.Visible = true;
                     statusItemKullanici.Text += " (Sekreter)";
                     break;
 

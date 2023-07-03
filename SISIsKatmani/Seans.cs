@@ -33,7 +33,7 @@ namespace SISIsKatmani
 
         public static SIN.Seans SonRandevuBilgisiGetir(int hastaNo)
         {
-            return VEK.Seans.SonSeansBilgisiGetir(hastaNo);
+            return VEK.Seans.SonRandevuBilgisiGetir(hastaNo);
         }
 
         public static SIN.Seans SonSeansBilgisiGetir(int hastaNo)

@@ -73,6 +73,7 @@
             menuItemSifreDegistir.Name = "menuItemSifreDegistir";
             menuItemSifreDegistir.Size = new Size(199, 22);
             menuItemSifreDegistir.Text = "Şifre &Değiştir";
+            menuItemSifreDegistir.Visible = false;
             menuItemSifreDegistir.Click += menuItemSifreDegistir_Click;
             // 
             // menuItemSifreSifirla
@@ -80,6 +81,7 @@
             menuItemSifreSifirla.Name = "menuItemSifreSifirla";
             menuItemSifreSifirla.Size = new Size(199, 22);
             menuItemSifreSifirla.Text = "Şif&re Sıfırla";
+            menuItemSifreSifirla.Visible = false;
             menuItemSifreSifirla.Click += menuItemSifreSifirla_Click;
             // 
             // menuItemUzmanEkle
@@ -87,6 +89,7 @@
             menuItemUzmanEkle.Name = "menuItemUzmanEkle";
             menuItemUzmanEkle.Size = new Size(199, 22);
             menuItemUzmanEkle.Text = "&Uzman Ekle";
+            menuItemUzmanEkle.Visible = false;
             menuItemUzmanEkle.Click += menuItemUzmanEkle_Click;
             // 
             // menuItemSekreterEkle
@@ -94,6 +97,7 @@
             menuItemSekreterEkle.Name = "menuItemSekreterEkle";
             menuItemSekreterEkle.Size = new Size(199, 22);
             menuItemSekreterEkle.Text = "&Sekreter Ekle";
+            menuItemSekreterEkle.Visible = false;
             menuItemSekreterEkle.Click += menuItemSekreterEkle_Click;
             // 
             // menuItemCalisanAra
@@ -101,6 +105,7 @@
             menuItemCalisanAra.Name = "menuItemCalisanAra";
             menuItemCalisanAra.Size = new Size(199, 22);
             menuItemCalisanAra.Text = "Çalışan &Ara";
+            menuItemCalisanAra.Visible = false;
             menuItemCalisanAra.Click += menuItemCalisanAra_Click;
             // 
             // menuItemRandevuYonet
@@ -108,6 +113,7 @@
             menuItemRandevuYonet.Name = "menuItemRandevuYonet";
             menuItemRandevuYonet.Size = new Size(199, 22);
             menuItemRandevuYonet.Text = "Hasta && Randevu Yönet";
+            menuItemRandevuYonet.Visible = false;
             menuItemRandevuYonet.Click += menuItemRandevuYonet_Click;
             // 
             // menuItemSeansYonetSekreter
@@ -115,6 +121,7 @@
             menuItemSeansYonetSekreter.Name = "menuItemSeansYonetSekreter";
             menuItemSeansYonetSekreter.Size = new Size(199, 22);
             menuItemSeansYonetSekreter.Text = "&Seans Yönet (Sekreter)";
+            menuItemSeansYonetSekreter.Visible = false;
             menuItemSeansYonetSekreter.Click += menuItemSeansYonetSekreter_Click;
             // 
             // menuItemSeansYonetUzman
@@ -122,6 +129,7 @@
             menuItemSeansYonetUzman.Name = "menuItemSeansYonetUzman";
             menuItemSeansYonetUzman.Size = new Size(199, 22);
             menuItemSeansYonetUzman.Text = "&Seans Yönet (Uzman)";
+            menuItemSeansYonetUzman.Visible = false;
             menuItemSeansYonetUzman.Click += menuItemSeansYonetUzman_Click;
             // 
             // menuItemAyrac
@@ -135,6 +143,7 @@
             menuItemCikis.Name = "menuItemCikis";
             menuItemCikis.Size = new Size(199, 22);
             menuItemCikis.Text = "&Çıkış";
+            menuItemCikis.Visible = false;
             menuItemCikis.Click += menuItemCikis_Click;
             // 
             // status

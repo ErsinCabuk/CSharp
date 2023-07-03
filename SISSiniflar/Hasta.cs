@@ -34,7 +34,7 @@ namespace SISSiniflar
         {
             get
             {
-                return string.Format("{0} {1} - {2}", ad, soyad, telefonNo);
+                return string.Format("{0} {1} {2}", ad, soyad, string.IsNullOrEmpty(telefonNo) ? "" : "- "+telefonNo);
             }
         }
     }

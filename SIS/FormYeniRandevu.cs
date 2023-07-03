@@ -101,7 +101,7 @@ namespace SIS
             catch (Exception hata)
             {
                 Yardimci.HataKaydet(hata);
-                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Servisde hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (sonuc)

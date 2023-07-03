@@ -63,7 +63,7 @@ namespace SIS
                 MessageBox.Show("Servisde bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if (sonuc)
+            if (!sonuc)
             {
                 MessageBox.Show("Kaydedildi.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();

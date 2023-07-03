@@ -127,19 +127,14 @@ namespace SIS
         private void buttonYeniHasta_Click(object sender, EventArgs e)
         {
             FormHastaBilgisi form = new FormHastaBilgisi();
-            DialogResult cevap = form.ShowDialog();
-            if (cevap == DialogResult.OK)
-            {
-                textBoxAd.Text = form.hasta.Ad;
-                textBoxSoyad.Text = form.hasta.Soyad;
-                HastalariListele();
-                if (listBoxHastalar.Items.Count > 0) listBoxHastalar.SelectedIndex = 0;
-            }
+            form.ShowDialog();
+            if (listBoxHastalar.Items.Count > 0) listBoxHastalar.SelectedIndex = 0;
+            HastalariListele();
         }
 
         private void listBoxHastalar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            hasta = (SIN.Hasta)listBoxHastalar.Items[listBoxHastalar.SelectedIndex];
+            hasta = (SIN.Hasta) listBoxHastalar.SelectedItem;
             HastaBilgisiYukle();
             RandevuBilgisiYukle();
         }
@@ -160,6 +155,8 @@ namespace SIS
             FormYeniRandevu form = new FormYeniRandevu();
             form.hasta = this.hasta;
             form.ShowDialog();
+            RandevuBilgisiTemizle();
+            RandevuBilgisiYukle();
         }
 
         private void buttonRandevuIptalEt_Click(object sender, EventArgs e)

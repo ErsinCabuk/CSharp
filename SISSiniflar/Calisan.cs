@@ -37,7 +37,7 @@ namespace SISSiniflar
         {
             get
             {
-                if (calisanTipi == CalisanTipleri.Uzman) return string.Format("{0} {1} ({2})", base.ad, base.soyad, unvan);
+                if (calisanTipi == CalisanTipleri.Uzman) return string.Format("{0} {1} {2}", base.ad, base.soyad, string.IsNullOrEmpty(unvan) ? "" : "("+unvan+")");
                 else return base.GoruntuMetni;
             }
         }

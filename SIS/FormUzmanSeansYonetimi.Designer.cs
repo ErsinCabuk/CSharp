@@ -337,7 +337,7 @@
             MaximizeBox = false;
             Name = "FormUzmanSeansYonetimi";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormUzmanSeansYonetimi";
+            Text = "Seans Yönetimi";
             Load += FormUzmanSeansYonetimi_Load;
             groupBoxHastaBilgileri.ResumeLayout(false);
             groupBoxHastaBilgileri.PerformLayout();

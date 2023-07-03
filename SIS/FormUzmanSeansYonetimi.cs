@@ -36,7 +36,7 @@ namespace SIS
 
         private void BilgileriYukle()
         {
-            if(hasta != null)
+            if (hasta != null)
             {
                 labelAd.Text = hasta.Ad;
                 labelAdres.Text = hasta.Adres;
@@ -95,6 +95,8 @@ namespace SIS
             labelDogumTarihi.Text = "";
             labelEPosta.Text = "";
             labelTelefonNo.Text = "";
+            textBoxGecmisSeansNotu.Text = "";
+            textBoxSeansNotu.Text = "";
         }
 
         private void FormUzmanSeansYonetimi_Load(object sender, EventArgs e)
@@ -104,7 +106,8 @@ namespace SIS
             try
             {
                 uzman = ISK.Calisan.CalisanGetir(Yardimci.KullaniciNo);
-            } catch (Exception hata) 
+            }
+            catch (Exception hata)
             {
                 Yardimci.HataKaydet(hata);
                 MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -115,7 +118,7 @@ namespace SIS
 
         private void listBoxSeanslar_SelectedIndexChanged(object sender, EventArgs e)
         {
-            gecmisSeans = (SIN.Seans) listBoxSeanslar.SelectedItem;
+            gecmisSeans = (SIN.Seans)listBoxSeanslar.SelectedItem;
             if (gecmisSeans != null) textBoxGecmisSeansNotu.Text = gecmisSeans.SeansNotu;
         }
 
@@ -123,9 +126,11 @@ namespace SIS
         {
             EkraniTemizle();
 
-            aktifSeans = (SIN.Seans) comboBoxSeanslar.SelectedItem;
 
-            if(aktifSeans.HastaNo > 0)
+            aktifSeans = (SIN.Seans)comboBoxSeanslar.SelectedItem;
+            Debug.WriteLine(aktifSeans.HastaNo);
+
+            if (aktifSeans.HastaNo > 0)
             {
                 try
                 {
@@ -134,7 +139,7 @@ namespace SIS
                 catch (Exception hata)
                 {
                     Yardimci.HataKaydet(hata);
-                    MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Servisde bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -161,7 +166,7 @@ namespace SIS
 
         private void buttonSeansNotuKaydet_Click(object sender, EventArgs e)
         {
-            if(string.IsNullOrEmpty(textBoxSeansNotu.Text))
+            if (string.IsNullOrEmpty(textBoxSeansNotu.Text))
             {
                 MessageBox.Show("Seans notu girin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBoxSeansNotu.Focus();
