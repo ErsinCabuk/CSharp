@@ -27,7 +27,7 @@ namespace SIS
             catch (Exception hata)
             {
                 Yardimci.HataKaydet(hata);
-                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Servisde bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             comboBoxSeanslar.DataSource = seanslar;
@@ -58,7 +58,7 @@ namespace SIS
                 catch (Exception hata)
                 {
                     Yardimci.HataKaydet(hata);
-                    MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Servisde bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 listBoxSeanslar.DataSource = hastaSeanslari;
@@ -77,7 +77,7 @@ namespace SIS
             catch (Exception hata)
             {
                 Yardimci.HataKaydet(hata);
-                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Servisde bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return sonuc;

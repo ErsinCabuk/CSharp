@@ -1,12 +1,5 @@
-﻿using SISSiniflar;
-using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SISVeriErisimKatmani
 {
@@ -16,7 +9,7 @@ namespace SISVeriErisimKatmani
         private SqlCommand komut = null;
 
 
-        internal Komut(string spAdi) 
+        internal Komut(string spAdi)
         {
             baglanti = Baglanti.BaglantiGetir();
             KomutOlustur(spAdi);
@@ -35,7 +28,7 @@ namespace SISVeriErisimKatmani
                 komut = baglanti.CreateCommand();
                 komut.CommandText = spAdi;
                 komut.CommandType = CommandType.StoredProcedure;
-            } 
+            }
             catch (SqlException hata)
             {
                 throw new Exception("Komut oluşturulamadı.", hata);
@@ -73,6 +66,7 @@ namespace SISVeriErisimKatmani
             komut.Parameters.Add(parametre);
             return parametre;
         }
+
         private object IsletSkaler()
         {
             object sonuc = null;
@@ -80,8 +74,7 @@ namespace SISVeriErisimKatmani
             {
                 baglanti.Open();
                 sonuc = komut.ExecuteScalar();
-                return sonuc;
-            } 
+            }
             catch (SqlException hata)
             {
                 Yardimci.HataKaydet(hata);
@@ -93,29 +86,40 @@ namespace SISVeriErisimKatmani
             return sonuc;
         }
 
+        /// <summary>
+        /// Sonucu bool olarak dönderir
+        /// </summary>
+        /// <returns>Bool dönderir</returns>
         internal bool IsletBool()
         {
             object sonuc = IsletSkaler();
-            return sonuc == null ? false : (bool) sonuc;
+            return sonuc == null ? false : (bool)sonuc;
         }
 
 
+        /// <summary>
+        /// Komutu temizler ve kapatır
+        /// </summary>
         internal void Temizle()
         {
             Baglanti.BaglantiSonlandir(baglanti);
             komut.Dispose();
         }
 
+        /// <summary>
+        /// Sonucu Int32 olarak dönderir
+        /// </summary>
+        /// <returns>int dönderir</returns>
         internal int IsletInt32()
         {
             object sonuc = IsletSkaler();
-            if (sonuc == null) return 0;
-
-            int deger = (int)sonuc;
-
-            return deger;
+            return sonuc == null ? 0 : (int)sonuc;
         }
 
+        /// <summary>
+        /// Sonucu SqlDataReader olarak dönderir
+        /// </summary>
+        /// <returns>SqlDataReader dönderir</returns>
         internal SqlDataReader IsletReader()
         {
             try
@@ -131,6 +135,10 @@ namespace SISVeriErisimKatmani
             }
         }
 
+        /// <summary>
+        /// Sonucu işler
+        /// </summary>
+        /// <returns>int dönderir</returns>
         internal int Islet()
         {
             int etkilenen = 0;
@@ -150,51 +158,75 @@ namespace SISVeriErisimKatmani
             }
         }
 
+        /// <summary>
+        /// OUT parametre değerini getirir
+        /// </summary>
+        /// <param name="parametreAdi">Parametrenin adı</param>
+        /// <returns>int dönderir</returns>
         internal int OutParametreDegeriGetir(string parametreAdi)
         {
             object deger = komut.Parameters[parametreAdi].Value;
-            if (deger != null) return (int)deger;
-            else return 0;
+            return deger != null ? (int)deger : 0;
         }
 
+        /// <summary>
+        /// Veri tabanında veriyi string olarak alır
+        /// </summary>
+        /// <param name="sqlVeriOkuyucu">SqlDataReader</param>
+        /// <param name="alan">Getirilecek verinin column adı.</param>
+        /// <returns>string dönderir</returns>
         internal static string StringGetir(SqlDataReader sqlVeriOkuyucu, string alan)
         {
-            string veri = string.Empty;
             int indeks = sqlVeriOkuyucu.GetOrdinal(alan);
-            if(!sqlVeriOkuyucu.IsDBNull(indeks)) veri = sqlVeriOkuyucu.GetString(indeks);
-            return veri;
+            return !sqlVeriOkuyucu.IsDBNull(indeks) ? sqlVeriOkuyucu.GetString(indeks) : string.Empty;
         }
 
+        /// <summary>
+        /// Veri tabanında veriyi Int32 olarak alır
+        /// </summary>
+        /// <param name="sqlVeriOkuyucu">SqlDataReader</param>
+        /// <param name="alan">Getirilecek verinin column adı.</param>
+        /// <returns>int dönderir</returns>
         internal static int Int32Getir(SqlDataReader sqlVeriOkuyucu, string alan)
         {
-            int veri = -1;
             int indeks = sqlVeriOkuyucu.GetOrdinal(alan);
-            if (!sqlVeriOkuyucu.IsDBNull(indeks)) veri = sqlVeriOkuyucu.GetInt32(indeks);
-            return veri;
+            return !sqlVeriOkuyucu.IsDBNull(indeks) ? sqlVeriOkuyucu.GetInt32(indeks) : -1;
         }
 
+        /// <summary>
+        /// Veri tabanında veriyi Int16 olarak alır
+        /// </summary>
+        /// <param name="sqlVeriOkuyucu">SqlDataReader</param>
+        /// <param name="alan">Getirilecek verinin column adı.</param>
+        /// <returns>int dönderir</returns>
         internal static int Int16Getir(SqlDataReader sqlVeriOkuyucu, string alan)
         {
-            int veri = -1;
             int indeks = sqlVeriOkuyucu.GetOrdinal(alan);
-            if (!sqlVeriOkuyucu.IsDBNull(indeks)) veri = sqlVeriOkuyucu.GetInt16(indeks);
-            return veri;
+            return !sqlVeriOkuyucu.IsDBNull(indeks) ? sqlVeriOkuyucu.GetInt16(indeks) : -1;
         }
 
+        /// <summary>
+        /// Veri tabanında veriyi DateTime olarak alır
+        /// </summary>
+        /// <param name="sqlVeriOkuyucu">SqlDataReader</param>
+        /// <param name="alan">Getirilecek verinin column adı.</param>
+        /// <returns>DateTime dönderir</returns>
         internal static DateTime TarihGetir(SqlDataReader sqlVeriOkuyucu, string alan)
         {
-            DateTime veri = DateTime.MinValue;
             int indeks = sqlVeriOkuyucu.GetOrdinal(alan);
-            if (!sqlVeriOkuyucu.IsDBNull(indeks)) veri = sqlVeriOkuyucu.GetDateTime(indeks);
-            return veri;
+            return !sqlVeriOkuyucu.IsDBNull(indeks) ? sqlVeriOkuyucu.GetDateTime(indeks) : DateTime.MinValue;
         }
 
+        /// <summary>
+        /// Veri tabanında veriyi bool olarak alır
+        /// </summary>
+        /// <param name="sqlVeriOkuyucu">SqlDataReader</param>
+        /// <param name="alan">Getirilecek verinin column adı.</param>
+        /// <returns>bool dönderir</returns>
         internal static bool BoolGetir(SqlDataReader sqlVeriOkuyucu, string alan)
         {
-            bool veri = false;
             int indeks = sqlVeriOkuyucu.GetOrdinal(alan);
-            if (!sqlVeriOkuyucu.IsDBNull(indeks)) veri = sqlVeriOkuyucu.GetBoolean(indeks);
-            return veri;
+            return !sqlVeriOkuyucu.IsDBNull(indeks) ? sqlVeriOkuyucu.GetBoolean(indeks) : false;
         }
     }
 }

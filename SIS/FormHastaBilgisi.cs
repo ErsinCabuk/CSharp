@@ -11,7 +11,7 @@ namespace SIS
             InitializeComponent();
         }
 
-        public SIN.Hasta hasta;
+        public SIN.Hasta hasta = null;
 
         private void HastaYukle()
         {
@@ -69,7 +69,7 @@ namespace SIS
             catch (Exception hata)
             {
                 Yardimci.HataKaydet(hata);
-                MessageBox.Show("Bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Servisde bir hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (sonuc > 0)

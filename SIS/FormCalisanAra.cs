@@ -38,7 +38,7 @@ namespace SIS
         private void listBoxCalisanlar_DoubleClick(object sender, EventArgs e)
         {
             int indeks = listBoxCalisanlar.SelectedIndex;
-            SIN.Calisan calisan = (SIN.Calisan)listBoxCalisanlar.SelectedItem;
+            SIN.Calisan calisan = (SIN.Calisan) listBoxCalisanlar.SelectedItem;
             if (calisan.CalisanTipi == SIN.Calisan.CalisanTipleri.Sekreter)
             {
                 FormSekreterBilgisi form = new FormSekreterBilgisi();

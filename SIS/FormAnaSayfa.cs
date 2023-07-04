@@ -143,6 +143,5 @@ namespace SIS
         {
             SaatYaz();
         }
-
     }
 }
